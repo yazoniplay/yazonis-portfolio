@@ -1,7 +1,12 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Yazan Mahmoud</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<style>
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#FAFAF9">
+<title>Landningssidor för småföretag i Sverige | Yazan Mahmoud</title><meta name="description" content="Skräddarsydda landningssidor för småföretag i Sverige. Tydlig design, mobilanpassning och en enkel väg till samtal, bokningar och offertförfrågningar."><meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://yazoniplay.is-a.dev/"><link rel="alternate" hreflang="sv-SE" href="https://yazoniplay.is-a.dev/"><link rel="alternate" hreflang="en-SE" href="https://yazoniplay.is-a.dev/en/"><link rel="alternate" hreflang="x-default" href="https://yazoniplay.is-a.dev/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Yazan Mahmoud"><meta property="og:title" content="Landningssidor för småföretag i Sverige | Yazan Mahmoud"><meta property="og:description" content="Skräddarsydda landningssidor för småföretag i Sverige. Tydlig design, mobilanpassning och en enkel väg till samtal, bokningar och offertförfrågningar."><meta property="og:url" content="https://yazoniplay.is-a.dev/"><meta property="og:image" content="https://yazoniplay.is-a.dev/og.svg"><meta property="og:locale" content="sv_SE">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Landningssidor för småföretag i Sverige | Yazan Mahmoud"><meta name="twitter:description" content="Skräddarsydda landningssidor för småföretag i Sverige. Tydlig design, mobilanpassning och en enkel väg till samtal, bokningar och offertförfrågningar."><meta name="twitter:image" content="https://yazoniplay.is-a.dev/og.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","@id":"https://yazoniplay.is-a.dev/#landing-page-service","name":"Design och utveckling av landningssidor","description":"Skräddarsydda landningssidor för småföretag i Sverige. Tydlig design, mobilanpassning och en enkel väg till samtal, bokningar och offertförfrågningar.","serviceType":"Design och utveckling av webbplatser","areaServed":{"@type":"Country","name":"Sweden"},"provider":{"@type":"Person","name":"Yazan Mahmoud","email":"yayazan.mahmoud@gmail.com"}}</script><style>
 /*
   Design plan — v4 (conversion pass)
   — Color: warm white ground, deep ink-violet text, violet→coral gradient accent (unchanged — already resolved).
@@ -17,24 +22,24 @@
   --surface-soft:#F2F0FB;
   --ink:#16131F;
   --ink-soft:#655F72;
-  --accent:#6D5EF0;
-  --accent2:#FF6B57;
+  --accent:#6253E8;
+  --accent2:#C44735;
   --accent-ink:#FFFFFF;
   --line:rgba(22,19,31,0.10);
   --line-strong:rgba(22,19,31,0.20);
   --shadow:0 10px 30px rgba(22,19,31,0.08);
-  --font-display:'Big Shoulders Display',sans-serif;
-  --font-body:'IBM Plex Sans',sans-serif;
-  --font-mono:'IBM Plex Mono',monospace;
-  --r-lg:22px;
-  --r-md:14px;
-  --r-sm:9px;
+  --font-display:'Arial Narrow','Roboto Condensed',Impact,system-ui,sans-serif;
+  --font-body:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace;
+  --r-lg:18px;
+  --r-md:12px;
+  --r-sm:8px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#0F0D16; --surface:#1A1723; --surface-soft:#211D30;
     --ink:#F5F3FA; --ink-soft:#A79FBC;
-    --accent:#8B7BFF; --accent2:#FF8469; --accent-ink:#13111C;
+    --accent:#A79BFF; --accent2:#FF9B88; --accent-ink:#13111C;
     --line:rgba(245,243,250,0.12); --line-strong:rgba(245,243,250,0.24);
     --shadow:0 10px 30px rgba(0,0,0,0.4);
     color-scheme:dark;
@@ -59,13 +64,7 @@ img{max-width:100%}
 svg{display:block}
 button{font:inherit}
 
-#page[data-lang="sv"] [lang="en"]{display:none}
-#page[data-lang="en"] [lang="sv"]{display:none}
-#page{transition:opacity .16s ease, filter .16s ease}
-#page.lang-fade{opacity:0;filter:blur(2px)}
 @media (prefers-reduced-motion: reduce){
-  #page{transition:none}
-  #page.lang-fade{opacity:1;filter:none}
 }
 
 h1,h2,h3{font-family:var(--font-display);font-weight:700;margin:0;text-wrap:balance}
@@ -254,169 +253,154 @@ section + section{border-top:1px solid var(--line)}
 @media (max-width:620px){.contact-grid{grid-template-columns:1fr}}
 
 footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+.skip-link{position:absolute;left:12px;top:12px;z-index:1000;padding:10px 14px;background:var(--ink);color:var(--bg);border-radius:8px;transform:translateY(-160%);transition:transform .15s ease}.skip-link:focus{transform:translateY(0)}
+.sample-grid{margin-top:42px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.sample-card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--shadow)}
+.sample-preview{min-height:205px;padding:14px;display:flex;align-items:center;justify-content:center}.sample-preview.cafe{background:#F0E8DA}.sample-preview.service{background:#E8EEF0}.sample-preview.salon{background:#F0E6E7}
+.sample-window{width:100%;max-width:260px;min-height:158px;padding:15px;border-radius:10px;background:#fff;box-shadow:0 8px 24px rgba(20,20,30,.12);color:#25222A}
+.sample-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font:700 9px ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#5B5363}.sample-top i{width:7px;height:7px;border-radius:50%;background:#C44735;display:inline-block}
+.sample-window h3{font:700 25px/1.02 'Arial Narrow','Roboto Condensed',Impact,sans-serif;letter-spacing:-.03em;margin:20px 0 7px;color:#211D28}.sample-window p{font:11px/1.45 Arial,sans-serif;color:#716B76;max-width:28ch}
+.sample-cta{display:inline-block;margin-top:13px;padding:7px 11px;border-radius:99px;background:#6253E8;color:#fff;font:700 9px ui-monospace,monospace}
+.sample-caption{padding:15px 17px 17px}.sample-caption strong{display:block;font-size:14px;margin-bottom:4px}.sample-caption span{font-size:12px;color:var(--ink-soft);line-height:1.5}
+.expectation-grid{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.expectation-card{padding:22px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
+.expectation-card h3{font-size:18px;margin-bottom:8px}.expectation-card p{font-size:14px;color:var(--ink-soft);line-height:1.6}.founder-note{margin-top:24px}
+@media(max-width:700px){.sample-grid,.expectation-grid{grid-template-columns:1fr}.sample-preview{min-height:180px}}@media(forced-colors:active){.sample-card,.expectation-card{border:1px solid CanvasText}}
 </style>
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-
+</head><body><a class="skip-link" href="#main">Hoppa till innehåll</a>
 <div id="page" data-lang="en">
 
   <nav class="top">
     <div class="wrap inner">
       <div class="wordmark">Yazan Mahmoud</div>
       <div class="nav-links">
-        <a href="#services"><span lang="en">Services</span><span lang="sv">Tjänster</span></a>
-        <a href="#process"><span lang="en">Process</span><span lang="sv">Process</span></a>
-        <a href="#why"><span lang="en">Why me</span><span lang="sv">Varför jag</span></a>
-        <a href="#pricing"><span lang="en">Pricing</span><span lang="sv">Pris</span></a>
-        <a href="#faq"><span lang="en">FAQ</span><span lang="sv">Frågor</span></a>
-        <a href="#contact"><span lang="en">Contact</span><span lang="sv">Kontakt</span></a>
+        <a href="#services"><span lang="sv">Tjänster</span></a>
+        <a href="#process"><span lang="sv">Process</span></a>
+        <a href="#why"><span lang="sv">Varför jag</span></a>
+        <a href="#pricing"><span lang="sv">Pris</span></a>
+        <a href="#faq"><span lang="sv">Frågor</span></a>
+        <a href="#contact"><span lang="sv">Kontakt</span></a>
       </div>
-      <button class="lang-btn" id="langToggle" aria-label="Switch language">SV</button>
+      <a class="lang-btn" id="langToggle" href="/en/" aria-label="Switch to English">EN</a>
     </div>
     <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
   </nav>
+  <main id="main">
 
   <section class="hero wrap">
     <div class="glow" id="glow"></div>
     <div class="content">
       <h1>
-        <span lang="en">Your business needs a landing&nbsp;page.<br>I build it this week.</span>
-        <span lang="sv">Ditt företag behöver en landningssida.<br>Jag bygger den den här veckan.</span>
+        
+        <span lang="sv">En tydlig landningssida för ditt företag.<br>Byggd för nästa kund.</span>
       </h1>
       <p class="sub">
-        <span lang="en">One focused page that explains what you do, builds trust, and makes it easy to book or buy. Live in days, not months.</span>
-        <span lang="sv">En fokuserad sida som visar vad ni gör, skapar förtroende och gör det enkelt att boka eller köpa. Lanseras på dagar, inte månader.</span>
+        
+        <span lang="sv">En fokuserad sida som förklarar vad du erbjuder, besvarar viktiga frågor och gör det enkelt att ringa, boka eller begära en offert.</span>
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" id="magnetBtn" href="#contact">
-          <span lang="en">Get a free mockup</span><span lang="sv">Få en gratis skiss</span>
+          <span lang="sv">Prata om ditt projekt</span>
         </a>
         <a class="btn btn-ghost" href="#process">
-          <span lang="en">See how it works</span><span lang="sv">Se hur det går till</span>
+          <span lang="sv">Se hur det går till</span>
         </a>
       </div>
 
-      <div class="demo">
-        <div class="demo-tabs" role="tablist">
-          <button class="demo-tab" id="tabBefore" role="tab" aria-selected="true">
-            <span lang="en">Before</span><span lang="sv">Innan</span>
-          </button>
-          <button class="demo-tab" id="tabAfter" role="tab" aria-selected="false">
-            <span lang="en">After</span><span lang="sv">Efter</span>
-          </button>
-          <span class="demo-live" id="demoLive" hidden><span class="dot"></span><span lang="en">typing live</span><span lang="sv">skrivs live</span></span>
-        </div>
-        <div class="demo-stage">
-          <div class="demo-panel before active" id="panelBefore">
-            <div class="ghost-line w1"></div>
-            <div class="ghost-line w2"></div>
-            <div class="ghost-line w3"></div>
-            <span class="ghost-tag">
-              <span lang="en">facebook.com/yourbusiness</span>
-              <span lang="sv">facebook.com/dittforetag</span>
-            </span>
-          </div>
-          <div class="demo-panel after" id="panelAfter">
-            <div class="mini-head">
-              <span lang="en" id="miniHeadEn">Smith &amp; Co.</span>
-              <span lang="sv" id="miniHeadSv">Svensson &amp; Co.</span>
-            </div>
-            <div class="mini-sub"><span lang="en">Family-run since 1998. Book your visit in 30 seconds.</span><span lang="sv">Familjeföretag sedan 1998. Boka ditt besök på 30 sekunder.</span></div>
-            <span class="mini-btn"><span lang="en">Book now</span><span lang="sv">Boka nu</span></span>
-          </div>
-        </div>
-        <div class="demo-caption">
-          <span lang="en">Type your business name in the form below — watch it appear here.</span>
-          <span lang="sv">Skriv ditt företagsnamn i formuläret nedan — se det dyka upp här.</span>
-        </div>
+      
+      <div class="sample-grid" aria-label="Illustrative website concepts">
+        <article class="sample-card"><div class="sample-preview cafe"><div class="sample-window"><div class="sample-top"><span>CAFÉ</span><i></i></div><h3>Good coffee.<br>Good mornings.</h3><p>A simple menu, opening hours and an easy way to find us.</p><span class="sample-cta">VIEW MENU</span></div></div><div class="sample-caption"><strong><span lang="sv">Caféskiss</span></strong><span><span lang="sv">Meny, öppettider och hitta hit.</span></span></div></article>
+        <article class="sample-card"><div class="sample-preview service"><div class="sample-window"><div class="sample-top"><span>HOME SERVICES</span><i></i></div><h3>Repairs done<br>the right way.</h3><p>Services, service area and a clear quote request.</p><span class="sample-cta">REQUEST A QUOTE</span></div></div><div class="sample-caption"><strong><span lang="sv">Tjänsteföretag</span></strong><span><span lang="sv">Tjänster, område och offertförfrågan.</span></span></div></article>
+        <article class="sample-card"><div class="sample-preview salon"><div class="sample-window"><div class="sample-top"><span>SALON</span><i></i></div><h3>Your next look<br>starts here.</h3><p>Work examples, treatments and booking information.</p><span class="sample-cta">BOOK A VISIT</span></div></div><div class="sample-caption"><strong><span lang="sv">Salongsskiss</span></strong><span><span lang="sv">Behandlingar, exempel och bokning.</span></span></div></article>
       </div>
+      <p class="inquiry-hint"><span lang="sv">Endast exempelkoncept — detta är inte tidigare kundprojekt.</span></p>
+
     </div>
   </section>
 
   <div class="stamp wrap">
     <div class="field">
-      <div class="k"><span lang="en">BASED</span><span lang="sv">BASERAD</span></div>
-      <div class="v"><span lang="en">Kristianstad — works nationwide, remote</span><span lang="sv">Kristianstad — jobbar i hela landet, på distans</span></div>
+      <div class="k"><span lang="sv">BASERAD</span></div>
+      <div class="v"><span lang="sv">Kristianstad — jobbar i hela landet, på distans</span></div>
     </div>
     <div class="field">
-      <div class="k"><span lang="en">LANGUAGES</span><span lang="sv">SPRÅK</span></div>
-      <div class="v"><span lang="en">Swedish, English, Arabic</span><span lang="sv">Svenska, engelska, arabiska</span></div>
+      <div class="k"><span lang="sv">SPRÅK</span></div>
+      <div class="v"><span lang="sv">Svenska, engelska, arabiska</span></div>
     </div>
     <div class="field">
-      <div class="k"><span lang="en">TURNAROUND</span><span lang="sv">LEVERANSTID</span></div>
-      <div class="v"><span lang="en">3–5 days</span><span lang="sv">3–5 dagar</span></div>
+      <div class="k"><span lang="sv">LEVERANSTID</span></div>
+      <div class="v"><span lang="sv">3–5 dagar</span></div>
     </div>
     <div class="field">
-      <div class="k"><span lang="en">STATUS</span><span lang="sv">STATUS</span></div>
-      <div class="v"><span lang="en">Taking new projects</span><span lang="sv">Tar nya projekt</span></div>
+      <div class="k"><span lang="sv">STATUS</span></div>
+      <div class="v"><span lang="sv">Tar nya projekt</span></div>
     </div>
   </div>
 
   <section id="services" class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow mono"><span lang="en">What's included</span><span lang="sv">Det här ingår</span></div>
-      <h2><span lang="en">One page, built properly</span><span lang="sv">En sida, ordentligt byggd</span></h2>
+      <div class="eyebrow mono"><span lang="sv">Det här ingår</span></div>
+      <h2><span lang="sv">En sida, ordentligt byggd</span></h2>
     </div>
     <div class="specs">
       <div class="spec-card reveal stagger" style="--d:0ms">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6L8 22H2v-6z"/></svg></div>
-        <p><span lang="en">One custom landing page, built from scratch</span><span lang="sv">En skräddarsydd landningssida, byggd från grunden</span></p>
+        <p><span lang="sv">En skräddarsydd landningssida, byggd från grunden</span></p>
       </div>
       <div class="spec-card reveal stagger" style="--d:60ms">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
-        <p><span lang="en">Mobile-first, loads fast, no bloat</span><span lang="sv">Mobilanpassad, snabb, inget onödigt</span></p>
+        <p><span lang="sv">Mobilanpassad, snabb, inget onödigt</span></p>
       </div>
       <div class="spec-card reveal stagger" style="--d:120ms">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-        <p><span lang="en">Copy written or polished together with you</span><span lang="sv">Text skriven eller putsad tillsammans med dig</span></p>
+        <p><span lang="sv">Text skriven eller putsad tillsammans med dig</span></p>
       </div>
       <div class="spec-card reveal stagger" style="--d:180ms">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
-        <p><span lang="en">Contact or booking section included</span><span lang="sv">Kontakt- eller bokningssektion ingår</span></p>
+        <p><span lang="sv">Kontakt- eller bokningssektion ingår</span></p>
       </div>
       <div class="spec-card reveal stagger" style="--d:240ms">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="12" r="4"/><circle cx="17" cy="12" r="4"/></svg></div>
-        <p><span lang="en">Unlimited revisions until you're happy</span><span lang="sv">Obegränsade justeringar tills du är nöjd</span></p>
+        <p><span lang="sv">Obegränsade justeringar tills du är nöjd</span></p>
       </div>
       <div class="spec-card reveal stagger" style="--d:300ms">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></div>
-        <p><span lang="en">You own the code — no subscriptions</span><span lang="sv">Du äger koden — inga prenumerationer</span></p>
+        <p><span lang="sv">Du äger koden — inga prenumerationer</span></p>
       </div>
     </div>
   </section>
 
   <section id="process" class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow mono"><span lang="en">How it works</span><span lang="sv">Så går det till</span></div>
-      <h2><span lang="en">Four steps, start to live</span><span lang="sv">Fyra steg, från start till live</span></h2>
+      <div class="eyebrow mono"><span lang="sv">Så går det till</span></div>
+      <h2><span lang="sv">Fyra steg, från start till live</span></h2>
     </div>
     <div class="steps">
       <div class="step reveal">
         <div class="railwrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div></div>
         <div>
-          <h3><span lang="en">Foundation</span><span lang="sv">Grund</span></h3>
-          <p><span lang="en">We talk through your business, your customers, and what the page needs to do.</span><span lang="sv">Vi pratar igenom ditt företag, dina kunder och vad sidan behöver göra.</span></p>
+          <h3><span lang="sv">Grund</span></h3>
+          <p><span lang="sv">Vi pratar igenom ditt företag, dina kunder och vad sidan behöver göra.</span></p>
         </div>
       </div>
       <div class="step reveal">
         <div class="railwrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
         <div>
-          <h3><span lang="en">Framing</span><span lang="sv">Stomme</span></h3>
-          <p><span lang="en">You get a working draft within 48 hours to react to.</span><span lang="sv">Du får ett fungerande utkast inom 48 timmar att reagera på.</span></p>
+          <h3><span lang="sv">Stomme</span></h3>
+          <p><span lang="sv">Du får ett fungerande utkast inom 48 timmar att reagera på.</span></p>
         </div>
       </div>
       <div class="step reveal">
         <div class="railwrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.2 6.6H21l-5.4 4 2 6.6L12 15.8 6.4 19.2l2-6.6-5.4-4h6.8z"/></svg></div></div>
         <div>
-          <h3><span lang="en">Finish</span><span lang="sv">Finish</span></h3>
-          <p><span lang="en">We refine copy, layout and details until it feels right.</span><span lang="sv">Vi finslipar text, layout och detaljer tills det känns rätt.</span></p>
+          <h3><span lang="sv">Finish</span></h3>
+          <p><span lang="sv">Vi finslipar text, layout och detaljer tills det känns rätt.</span></p>
         </div>
       </div>
       <div class="step reveal">
         <div class="railwrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div></div>
         <div>
-          <h3><span lang="en">Handover</span><span lang="sv">Överlämning</span></h3>
-          <p><span lang="en">Your page goes live. You get the files — nothing else to pay for.</span><span lang="sv">Sidan går live. Du får filerna — inget mer att betala för.</span></p>
+          <h3><span lang="sv">Överlämning</span></h3>
+          <p><span lang="sv">Sidan går live. Du får filerna — inget mer att betala för.</span></p>
         </div>
       </div>
     </div>
@@ -424,151 +408,135 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
 
   <section id="range" class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow mono"><span lang="en">Style range</span><span lang="sv">Stilspann</span></div>
-      <h2><span lang="en">Built to match your business</span><span lang="sv">Byggd efter ditt företag</span></h2>
-      <p><span lang="en">This page is the proof of craft — the same care goes into whatever fits your brand, from restrained and professional to bold and loud.</span><span lang="sv">Den här sidan är beviset på hantverket — samma omsorg läggs på det som passar ditt varumärke, från återhållsamt och professionellt till djärvt och högljutt.</span></p>
+      <div class="eyebrow mono"><span lang="sv">Stilspann</span></div>
+      <h2><span lang="sv">Byggd efter ditt företag</span></h2>
+      <p><span lang="sv">Den här sidan är beviset på hantverket — samma omsorg läggs på det som passar ditt varumärke, från återhållsamt och professionellt till djärvt och högljutt.</span></p>
     </div>
     <div class="styles">
       <div class="swatch reveal stagger" style="--d:0ms">
         <div class="dot-row"><div class="dot" style="background:#6D5EF0"></div><div class="dot" style="background:#16131F"></div><div class="dot" style="background:#FAFAF9"></div></div>
-        <div class="label mono"><span lang="en">RESTRAINED</span><span lang="sv">ÅTERHÅLLSAM</span></div>
-        <div class="headline"><span lang="en">Clean &amp; trusted</span><span lang="sv">Rent &amp; pålitligt</span></div>
+        <div class="label mono"><span lang="sv">ÅTERHÅLLSAM</span></div>
+        <div class="headline"><span lang="sv">Rent &amp; pålitligt</span></div>
       </div>
       <div class="swatch reveal stagger" style="--d:80ms">
         <div class="dot-row"><div class="dot" style="background:#C6502E"></div><div class="dot" style="background:#2B1B12"></div><div class="dot" style="background:#F3E9DE"></div></div>
-        <div class="label mono"><span lang="en">WARM</span><span lang="sv">VARM</span></div>
-        <div class="headline"><span lang="en">Local &amp; personal</span><span lang="sv">Lokal &amp; personlig</span></div>
+        <div class="label mono"><span lang="sv">VARM</span></div>
+        <div class="headline"><span lang="sv">Lokal &amp; personlig</span></div>
       </div>
       <div class="swatch reveal stagger" style="--d:160ms">
         <div class="dot-row"><div class="dot" style="background:#17C784"></div><div class="dot" style="background:#0B0F0D"></div><div class="dot" style="background:#E4F3EC"></div></div>
-        <div class="label mono"><span lang="en">BOLD</span><span lang="sv">DJÄRV</span></div>
-        <div class="headline"><span lang="en">Loud &amp; confident</span><span lang="sv">Högljudd &amp; självsäker</span></div>
+        <div class="label mono"><span lang="sv">DJÄRV</span></div>
+        <div class="headline"><span lang="sv">Högljudd &amp; självsäker</span></div>
       </div>
     </div>
   </section>
 
   <section id="why" class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow mono"><span lang="en">Why not just use a builder?</span><span lang="sv">Varför inte bara använda en byggare?</span></div>
-      <h2><span lang="en">A real page vs. a DIY template</span><span lang="sv">En riktig sida vs. en DIY-mall</span></h2>
+      <div class="eyebrow mono"><span lang="sv">Vad som gör en bra landningssida</span></div>
+      <h2><span lang="sv">En sida med ett tydligt syfte</span></h2>
     </div>
-    <div class="compare">
-      <div class="compare-col win reveal">
-        <div class="head">
-          <span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-          <h3><span lang="en">Built for you</span><span lang="sv">Byggd åt dig</span></h3>
-        </div>
-        <div class="compare-row"><span lang="en">3–5 days, done for you</span><span lang="sv">3–5 dagar, gjort åt dig</span></div>
-        <div class="compare-row"><span lang="en">One payment, yours forever</span><span lang="sv">En betalning, din för alltid</span></div>
-        <div class="compare-row"><span lang="en">A developer who asks about your business first</span><span lang="sv">En utvecklare som frågar om ditt företag först</span></div>
-      </div>
-      <div class="compare-col reveal" style="transition-delay:80ms">
-        <div class="head">
-          <span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-          <h3><span lang="en">DIY builder</span><span lang="sv">DIY-byggare</span></h3>
-        </div>
-        <div class="compare-row"><span lang="en">Hours of trial and error, done by you</span><span lang="sv">Timmar av eget trial-and-error</span></div>
-        <div class="compare-row"><span lang="en">Monthly subscription, forever</span><span lang="sv">Månadsavgift, för alltid</span></div>
-        <div class="compare-row"><span lang="en">A template that looks like everyone else's</span><span lang="sv">En mall som ser ut som alla andras</span></div>
-      </div>
+    
+    <div class="expectation-grid">
+      <article class="expectation-card reveal"><h3><span lang="sv">Ett tydligt mål</span></h3><p><span lang="sv">Sidan planeras kring det som är viktigast för företaget: samtal, bokning, offertförfrågan eller besök.</span></p></article>
+      <article class="expectation-card reveal"><h3><span lang="sv">En tydlig process</span></h3><p><span lang="sv">Vi kommer överens om innehåll, omfattning, uppskattad leveranstid och pris innan arbetet börjar.</span></p></article>
+      <article class="expectation-card reveal"><h3><span lang="sv">Byggd för mobilen</span></h3><p><span lang="sv">Layouten utformas först för små skärmar och anpassas sedan för större skärmar.</span></p></article>
     </div>
 
-    <blockquote class="founder-note reveal">
-      <p><span lang="en">I'm building my first client pages right now — which means more of my attention, faster replies, and a price that won't stay this low once I'm booked up.</span><span lang="sv">Jag bygger mina första kundsidor just nu — det betyder mer uppmärksamhet från mig, snabbare svar och ett pris som inte förblir så här lågt när jag är fullbokad.</span></p>
-      <cite>— Yazan</cite>
-    </blockquote>
+
+    <div class="founder-note reveal"><p><span lang="sv">Två korrekturrundor ingår. Innan arbetet börjar kommer vi överens om leveransen, tidsplanen och slutpriset.</span></p></div>
   </section>
 
   <section id="pricing" class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow mono"><span lang="en">Pricing</span><span lang="sv">Pris</span></div>
-      <h2><span lang="en">One fixed price</span><span lang="sv">Ett fast pris</span></h2>
+      <div class="eyebrow mono"><span lang="sv">Pris</span></div>
+      <h2><span lang="sv">Ett fast pris</span></h2>
     </div>
     <div class="price-card reveal">
-      <div class="amount">1 500 kr <small>(~$150)</small></div>
+      <div class="amount">1 500 kr</div>
       <p class="note">
-        <span lang="en">Per page, fixed before I start. No hourly surprises, no hidden costs.</span>
-        <span lang="sv">Per sida, fastställt innan jag börjar. Inga timöverraskningar, inga dolda kostnader.</span>
+        
+        <span lang="sv">För en landningssida. Omfattning och pris bestäms innan arbetet börjar; domän, webbhotell och externa tjänster tillkommer.</span>
       </p>
     </div>
   </section>
 
   <section id="faq" class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow mono"><span lang="en">Questions</span><span lang="sv">Frågor</span></div>
-      <h2><span lang="en">Before you ask</span><span lang="sv">Innan du frågar</span></h2>
+      <div class="eyebrow mono"><span lang="sv">Frågor</span></div>
+      <h2><span lang="sv">Innan du frågar</span></h2>
     </div>
     <div class="faq reveal">
       <div class="faq-item" data-open="false">
-        <button class="faq-q">
-          <span><span lang="en">What if I don't like the design?</span><span lang="sv">Vad händer om jag inte gillar designen?</span></span>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-1">
+          <span><span lang="sv">Vad händer om jag inte gillar designen?</span></span>
           <span class="plus" aria-hidden="true"></span>
         </button>
-        <div class="faq-a"><p><span lang="en">You get unlimited revisions until it looks right. The price doesn't change.</span><span lang="sv">Du får obegränsade justeringar tills det ser rätt ut. Priset ändras inte.</span></p></div>
+        <div class="faq-a" id="faq-answer-1"><p><span lang="sv">Två korrekturrundor ingår. Eventuellt extraarbete avtalas innan det påbörjas.</span></p></div>
       </div>
       <div class="faq-item" data-open="false">
-        <button class="faq-q">
-          <span><span lang="en">Do I need to know anything technical?</span><span lang="sv">Behöver jag kunna något tekniskt?</span></span>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-2">
+          <span><span lang="sv">Behöver jag kunna något tekniskt?</span></span>
           <span class="plus" aria-hidden="true"></span>
         </button>
-        <div class="faq-a"><p><span lang="en">No. Tell me what your business does and who your customers are — I handle the rest.</span><span lang="sv">Nej. Berätta vad ditt företag gör och vilka dina kunder är — jag sköter resten.</span></p></div>
+        <div class="faq-a" id="faq-answer-2"><p><span lang="sv">Nej. Berätta vad ditt företag gör och vilka dina kunder är — jag sköter resten.</span></p></div>
       </div>
       <div class="faq-item" data-open="false">
-        <button class="faq-q">
-          <span><span lang="en">Can the page be in Arabic too?</span><span lang="sv">Kan sidan vara på arabiska också?</span></span>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-3">
+          <span><span lang="sv">Kan sidan vara på arabiska också?</span></span>
           <span class="plus" aria-hidden="true"></span>
         </button>
-        <div class="faq-a"><p><span lang="en">Yes — I write and build in Swedish, English or Arabic, including right-to-left layout.</span><span lang="sv">Ja — jag skriver och bygger på svenska, engelska eller arabiska, inklusive höger-till-vänster-layout.</span></p></div>
+        <div class="faq-a" id="faq-answer-3"><p><span lang="sv">Ja — jag skriver och bygger på svenska, engelska eller arabiska, inklusive höger-till-vänster-layout.</span></p></div>
       </div>
       <div class="faq-item" data-open="false">
-        <button class="faq-q">
-          <span><span lang="en">What happens after it's live?</span><span lang="sv">Vad händer efter att den är live?</span></span>
+        <button class="faq-q" aria-expanded="false" aria-controls="faq-answer-4">
+          <span><span lang="sv">Vad händer efter att den är live?</span></span>
           <span class="plus" aria-hidden="true"></span>
         </button>
-        <div class="faq-a"><p><span lang="en">You get the files and I walk you through getting it online. No subscriptions, no lock-in.</span><span lang="sv">Du får filerna och jag visar hur du får den på nätet. Inga prenumerationer, ingen inlåsning.</span></p></div>
+        <div class="faq-a" id="faq-answer-4"><p><span lang="sv">Du får de avtalade filerna och överlämningsinformation. Webbhotell och löpande underhåll ingår inte om vi inte avtalar om det separat.</span></p></div>
       </div>
     </div>
   </section>
 
   <section id="contact" class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow mono"><span lang="en">Get started</span><span lang="sv">Kom igång</span></div>
-      <h2><span lang="en">Let's build yours</span><span lang="sv">Nu bygger vi din</span></h2>
-      <p><span lang="en">Fill this in and send it straight to my WhatsApp — I reply within a day.</span><span lang="sv">Fyll i och skicka direkt till mitt WhatsApp — jag svarar inom en dag.</span></p>
+      <div class="eyebrow mono"><span lang="sv">Kom igång</span></div>
+      <h2><span lang="sv">Nu bygger vi din</span></h2>
+      <p><span lang="sv">Berätta kort vad du behöver och skicka meddelandet till mig på WhatsApp. Jag svarar så snart jag kan.</span></p>
     </div>
 
     <form class="inquiry reveal" id="inquiryForm">
       <div class="form-row">
         <div class="field">
-          <label for="leadName"><span lang="en">Your name</span><span lang="sv">Ditt namn</span></label>
+          <label for="leadName"><span lang="sv">Ditt namn</span></label>
           <input type="text" id="leadName" name="name" autocomplete="name">
         </div>
         <div class="field">
-          <label for="leadBusiness"><span lang="en">Business name</span><span lang="sv">Företagsnamn</span></label>
+          <label for="leadBusiness"><span lang="sv">Företagsnamn</span></label>
           <input type="text" id="leadBusiness" name="business" autocomplete="organization">
         </div>
       </div>
       <div class="field">
-        <label for="leadNeed"><span lang="en">What do you need?</span><span lang="sv">Vad behöver du?</span></label>
-        <textarea id="leadNeed" name="need" lang="en" placeholder="A page where people can see our menu and book a table"></textarea>
+        <label for="leadNeed"><span lang="sv">Vad behöver du?</span></label>
+        <textarea id="leadNeed" name="need" lang="en" placeholder="Beskriv kort vad du behöver, till exempel en meny och bordsbokning"></textarea>
       </div>
       <div class="inquiry-actions">
         <a class="btn btn-primary" id="waLink" href="https://wa.me/46707358046" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
-          <span lang="en">Send via WhatsApp</span><span lang="sv">Skicka via WhatsApp</span>
+          <span lang="sv">Skicka via WhatsApp</span>
         </a>
         <button type="button" class="btn btn-ghost" id="copyMessage">
-          <span lang="en">Copy message instead</span><span lang="sv">Kopiera meddelandet istället</span>
+          <span lang="sv">Kopiera meddelandet istället</span>
         </button>
       </div>
       <p class="inquiry-hint">
-        <span lang="en">Opens WhatsApp with your message already written — you just hit send.</span>
+        
         <span lang="sv">Öppnar WhatsApp med ditt meddelande redan skrivet — du trycker bara skicka.</span>
       </p>
     </form>
 
     <div class="contact-sub">
-      <div class="eyebrow mono"><span lang="en">Prefer to reach out directly?</span><span lang="sv">Vill du höra av dig direkt istället?</span></div>
+      <div class="eyebrow mono"><span lang="sv">Vill du höra av dig direkt istället?</span></div>
     </div>
     <div class="contact-grid">
       <div class="contact-box reveal">
@@ -576,7 +544,7 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
         <div>
           <div class="k mono">EMAIL</div>
           <div class="v" id="emailText">yayazan.mahmoud@gmail.com</div>
-          <button class="copy-btn" id="copyEmail"><span lang="en">Copy email</span><span lang="sv">Kopiera e-post</span></button>
+          <button class="copy-btn" id="copyEmail"><span lang="sv">Kopiera e-post</span></button>
         </div>
       </div>
       <div class="contact-box reveal">
@@ -584,12 +552,13 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
         <div>
           <div class="k mono">WHATSAPP</div>
           <div class="v" id="phoneText">+46 70 735 80 46</div>
-          <button class="copy-btn" id="copyPhone"><span lang="en">Copy number</span><span lang="sv">Kopiera nummer</span></button>
+          <button class="copy-btn" id="copyPhone"><span lang="sv">Kopiera nummer</span></button>
         </div>
       </div>
     </div>
   </section>
 
+  </main>
   <footer class="wrap">
     <span>Yazan Mahmoud — Kristianstad, Sweden</span>
     <span class="mono">© 2026</span>
@@ -599,192 +568,25 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
 
 <script>
 (function(){
-  var page = document.getElementById('page');
-  var btn = document.getElementById('langToggle');
-  var reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  function setLang(lang){
-    page.setAttribute('data-lang', lang);
-    btn.textContent = lang === 'en' ? 'SV' : 'EN';
-    try { localStorage.setItem('yazan-lang', lang); } catch(e){}
-    updateWaLink();
-  }
-  var saved = null;
-  try { saved = localStorage.getItem('yazan-lang'); } catch(e){}
-
-  btn.addEventListener('click', function(){
-    var next = page.getAttribute('data-lang') === 'en' ? 'sv' : 'en';
-    if (reduceMotionQuery.matches) { setLang(next); return; }
-    page.classList.add('lang-fade');
-    setTimeout(function(){
-      setLang(next);
-      requestAnimationFrame(function(){ page.classList.remove('lang-fade'); });
-    }, 160);
-  });
-
-  /* copy buttons (static text) */
-  function wireCopy(btnId, textId){
-    var b = document.getElementById(btnId);
-    var t = document.getElementById(textId);
-    b.addEventListener('click', function(){
-      copyValue(t.textContent.trim(), b);
-    });
-  }
-  function copyValue(value, b){
-    var original = b.innerHTML;
-    function flash(){
-      var isEn = page.getAttribute('data-lang') === 'en';
-      b.textContent = isEn ? 'Copied' : 'Kopierat';
-      setTimeout(function(){ b.innerHTML = original; }, 1400);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(value).then(flash, function(){ flash(); });
-    } else { flash(); }
-  }
-  wireCopy('copyEmail','emailText');
-  wireCopy('copyPhone','phoneText');
-
-  /* reveal on scroll */
-  var targets = document.querySelectorAll('.reveal');
-  if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) {
-    targets.forEach(function(el){ el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    targets.forEach(function(el){ io.observe(el); });
-  }
-
-  /* scroll progress bar */
-  var bar = document.getElementById('progressBar');
-  var ticking = false;
-  function updateProgress(){
-    var h = document.documentElement;
-    var max = h.scrollHeight - h.clientHeight;
-    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
-    bar.style.width = pct + '%';
-    ticking = false;
-  }
-  window.addEventListener('scroll', function(){
-    if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
-  }, { passive: true });
-  updateProgress();
-
-  /* hero glow parallax */
-  var heroEl = document.querySelector('.hero');
-  var glow = document.getElementById('glow');
-  if (heroEl && glow && !reduceMotionQuery.matches && window.matchMedia('(hover: hover)').matches) {
-    heroEl.addEventListener('mousemove', function(e){
-      var r = heroEl.getBoundingClientRect();
-      var mx = ((e.clientX - r.left) / r.width - 0.5) * 40;
-      var my = ((e.clientY - r.top) / r.height - 0.5) * 40;
-      glow.style.setProperty('--gx', mx + 'px');
-      glow.style.setProperty('--gy', my + 'px');
-    });
-    heroEl.addEventListener('mouseleave', function(){
-      glow.style.setProperty('--gx', '0px');
-      glow.style.setProperty('--gy', '0px');
-    });
-  }
-
-  /* magnetic primary button */
-  var magnet = document.getElementById('magnetBtn');
-  if (magnet && !reduceMotionQuery.matches && window.matchMedia('(hover: hover)').matches) {
-    magnet.addEventListener('mousemove', function(e){
-      var r = magnet.getBoundingClientRect();
-      var mx = (e.clientX - r.left - r.width / 2) * 0.25;
-      var my = (e.clientY - r.top - r.height / 2) * 0.35;
-      magnet.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-    });
-    magnet.addEventListener('mouseleave', function(){
-      magnet.style.transform = 'translate(0,0)';
-    });
-  }
-
-  /* before/after demo */
-  var tabBefore = document.getElementById('tabBefore');
-  var tabAfter = document.getElementById('tabAfter');
-  var panelBefore = document.getElementById('panelBefore');
-  var panelAfter = document.getElementById('panelAfter');
-  var demoLive = document.getElementById('demoLive');
-  function showPanel(which){
-    var isAfter = which === 'after';
-    tabBefore.setAttribute('aria-selected', String(!isAfter));
-    tabAfter.setAttribute('aria-selected', String(isAfter));
-    panelBefore.classList.toggle('active', !isAfter);
-    panelAfter.classList.toggle('active', isAfter);
-  }
-  tabBefore.addEventListener('click', function(){ showPanel('before'); });
-  tabAfter.addEventListener('click', function(){ showPanel('after'); });
-
-  /* live personalization: typing a business name updates the mock "after" page */
-  var nameInput = document.getElementById('leadName');
-  var businessInput = document.getElementById('leadBusiness');
-  var needInput = document.getElementById('leadNeed');
-  var miniHeadEn = document.getElementById('miniHeadEn');
-  var miniHeadSv = document.getElementById('miniHeadSv');
-  var switchedToAfter = false;
-  businessInput.addEventListener('input', function(){
-    var val = businessInput.value.trim();
-    miniHeadEn.textContent = val || 'Smith & Co.';
-    miniHeadSv.textContent = val || 'Svensson & Co.';
-    if (val && !switchedToAfter) {
-      switchedToAfter = true;
-      showPanel('after');
-      demoLive.hidden = false;
-    }
-    if (!val) { demoLive.hidden = true; switchedToAfter = false; }
-    updateWaLink();
-  });
-
-  /* whatsapp inquiry link */
-  var waLink = document.getElementById('waLink');
-  function buildMessage(){
-    var lang = page.getAttribute('data-lang');
-    var name = nameInput.value.trim();
-    var biz = businessInput.value.trim();
-    var need = needInput.value.trim();
-    var msg;
-    if (lang === 'sv') {
-      msg = 'Hej Yazan!' + (name ? ' Jag heter ' + name + '.' : '') + ' Jag är intresserad av en landningssida' + (biz ? ' för ' + biz : '') + '.';
-      if (need) msg += ' ' + need;
-    } else {
-      msg = 'Hi Yazan!' + (name ? ' I’m ' + name + '.' : '') + ' I’m interested in a landing page' + (biz ? ' for ' + biz : '') + '.';
-      if (need) msg += ' ' + need;
-    }
-    return msg;
-  }
-  function updateWaLink(){
-    waLink.href = 'https://wa.me/46707358046?text=' + encodeURIComponent(buildMessage());
-  }
-  [nameInput, needInput].forEach(function(el){ el.addEventListener('input', updateWaLink); });
-  updateWaLink();
-  setLang(saved === 'sv' ? 'sv' : 'en');
-
-  document.getElementById('inquiryForm').addEventListener('submit', function(e){ e.preventDefault(); });
-  document.getElementById('copyMessage').addEventListener('click', function(e){
-    copyValue(buildMessage(), e.currentTarget);
-  });
-
-  /* faq accordion */
-  document.querySelectorAll('.faq-item').forEach(function(item){
-    var q = item.querySelector('.faq-q');
-    var a = item.querySelector('.faq-a');
-    q.addEventListener('click', function(){
-      var open = item.getAttribute('data-open') === 'true';
-      document.querySelectorAll('.faq-item').forEach(function(other){
-        other.setAttribute('data-open', 'false');
-        other.querySelector('.faq-a').style.maxHeight = null;
-      });
-      if (!open) {
-        item.setAttribute('data-open', 'true');
-        a.style.maxHeight = a.scrollHeight + 'px';
-      }
-    });
-  });
+var page=document.getElementById('page'),lang=document.documentElement.lang==='sv'?'sv':'en',toggle=document.getElementById('langToggle');
+page.setAttribute('data-lang',lang);if(toggle){toggle.href=lang==='sv'?'/en/':'/';toggle.textContent=lang==='sv'?'EN':'SV';}
+var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function copyValue(value,button){var original=button.innerHTML;function flash(){button.textContent=lang==='sv'?'Kopierat':'Copied';window.setTimeout(function(){button.innerHTML=original;},1400);}
+function fallback(){var field=document.createElement('textarea');field.value=value;field.setAttribute('readonly','');field.style.position='fixed';field.style.opacity='0';document.body.appendChild(field);field.select();try{document.execCommand('copy');flash();}catch(e){}field.remove();}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(value).then(flash,fallback);}else{fallback();}}
+function wireCopy(id,textId){var b=document.getElementById(id),t=document.getElementById(textId);if(b&&t)b.addEventListener('click',function(){copyValue(t.textContent.trim(),b);});}
+wireCopy('copyEmail','emailText');wireCopy('copyPhone','phoneText');
+var targets=document.querySelectorAll('.reveal');if(reduceMotion||!('IntersectionObserver' in window)){targets.forEach(function(el){el.classList.add('in');});}else{var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}});},{threshold:.15,rootMargin:'0px 0px -40px 0px'});targets.forEach(function(el){io.observe(el);});}
+var bar=document.getElementById('progressBar'),ticking=false;function updateProgress(){var root=document.documentElement,max=root.scrollHeight-root.clientHeight;bar.style.width=(max>0?root.scrollTop/max*100:0)+'%';ticking=false;}
+window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(updateProgress);ticking=true;}},{passive:true});updateProgress();
+var hero=document.querySelector('.hero'),glow=document.getElementById('glow');if(hero&&glow&&!reduceMotion&&window.matchMedia('(hover:hover)').matches){hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();glow.style.setProperty('--gx',((e.clientX-r.left)/r.width-.5)*40+'px');glow.style.setProperty('--gy',((e.clientY-r.top)/r.height-.5)*40+'px');});hero.addEventListener('mouseleave',function(){glow.style.setProperty('--gx','0px');glow.style.setProperty('--gy','0px');});}
+var magnet=document.getElementById('magnetBtn');if(magnet&&!reduceMotion&&window.matchMedia('(hover:hover)').matches){magnet.addEventListener('mousemove',function(e){var r=magnet.getBoundingClientRect();magnet.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.2)+'px)';});magnet.addEventListener('mouseleave',function(){magnet.style.transform='translate(0,0)';});}
+var nameInput=document.getElementById('leadName'),businessInput=document.getElementById('leadBusiness'),needInput=document.getElementById('leadNeed'),waLink=document.getElementById('waLink');
+function buildMessage(){var name=nameInput.value.trim(),business=businessInput.value.trim(),need=needInput.value.trim();var msg=lang==='sv'?'Hej Yazan!'+(name?' Jag heter '+name+'.':'')+' Jag vill gärna prata om en landningssida'+(business?' för '+business:'')+'.':'Hi Yazan!'+(name?' I’m '+name+'.':'')+' I’d like to discuss a landing page'+(business?' for '+business:'')+'.';return msg+(need?' '+need:'');}
+function updateWaLink(){waLink.href='https://wa.me/46707358046?text='+encodeURIComponent(buildMessage());}
+[nameInput,businessInput,needInput].forEach(function(input){input.addEventListener('input',updateWaLink);});updateWaLink();
+var form=document.getElementById('inquiryForm');if(form)form.addEventListener('submit',function(e){e.preventDefault();});
+var copyMessage=document.getElementById('copyMessage');if(copyMessage)copyMessage.addEventListener('click',function(e){copyValue(buildMessage(),e.currentTarget);});
+document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.addEventListener('click',function(){var open=item.getAttribute('data-open')==='true';document.querySelectorAll('.faq-item').forEach(function(other){other.setAttribute('data-open','false');other.querySelector('.faq-q').setAttribute('aria-expanded','false');other.querySelector('.faq-a').style.maxHeight=null;});if(!open){item.setAttribute('data-open','true');q.setAttribute('aria-expanded','true');a.style.maxHeight=a.scrollHeight+'px';}});});
 })();
-</script>
-
-</body></html>
+</script></body></html>
