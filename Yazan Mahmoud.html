@@ -1,0 +1,790 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Yazan Mahmoud</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/*
+  Design plan — v4 (conversion pass)
+  — Color: warm white ground, deep ink-violet text, violet→coral gradient accent (unchanged — already resolved).
+  — Type: Big Shoulders Display (headline) + IBM Plex Sans (body) + IBM Plex Mono (labels).
+  — Layout: everything from v3 stays. New: a live personalized demo (typing your business name
+    updates the mock page in the hero), a working WhatsApp inquiry form (no fake backend — a real
+    wa.me link prefilled from the form), an honest "why now" / early-access section instead of
+    fabricated testimonials, and a builder-vs-custom comparison to pre-empt "I'll just use Wix".
+*/
+:root{
+  --bg:#FAFAF9;
+  --surface:#FFFFFF;
+  --surface-soft:#F2F0FB;
+  --ink:#16131F;
+  --ink-soft:#655F72;
+  --accent:#6D5EF0;
+  --accent2:#FF6B57;
+  --accent-ink:#FFFFFF;
+  --line:rgba(22,19,31,0.10);
+  --line-strong:rgba(22,19,31,0.20);
+  --shadow:0 10px 30px rgba(22,19,31,0.08);
+  --font-display:'Big Shoulders Display',sans-serif;
+  --font-body:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --r-lg:22px;
+  --r-md:14px;
+  --r-sm:9px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F0D16; --surface:#1A1723; --surface-soft:#211D30;
+    --ink:#F5F3FA; --ink-soft:#A79FBC;
+    --accent:#8B7BFF; --accent2:#FF8469; --accent-ink:#13111C;
+    --line:rgba(245,243,250,0.12); --line-strong:rgba(245,243,250,0.24);
+    --shadow:0 10px 30px rgba(0,0,0,0.4);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F0D16; --surface:#1A1723; --surface-soft:#211D30;
+  --ink:#F5F3FA; --ink-soft:#A79FBC;
+  --accent:#8B7BFF; --accent2:#FF8469; --accent-ink:#13111C;
+  --line:rgba(245,243,250,0.12); --line-strong:rgba(245,243,250,0.24);
+  --shadow:0 10px 30px rgba(0,0,0,0.4);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html,body{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);margin:0;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:21;background:var(--surface)}
+a{color:inherit}
+img{max-width:100%}
+[hidden]{display:none!important}
+svg{display:block}
+button{font:inherit}
+
+#page[data-lang="sv"] [lang="en"]{display:none}
+#page[data-lang="en"] [lang="sv"]{display:none}
+#page{transition:opacity .16s ease, filter .16s ease}
+#page.lang-fade{opacity:0;filter:blur(2px)}
+@media (prefers-reduced-motion: reduce){
+  #page{transition:none}
+  #page.lang-fade{opacity:1;filter:none}
+}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:700;margin:0;text-wrap:balance}
+p{margin:0;line-height:1.6}
+.mono{font-family:var(--font-mono)}
+
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+
+/* ---- nav + progress ---- */
+nav.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:19;background:color-mix(in srgb, var(--surface) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.progress{height:2px;background:var(--line);overflow:hidden}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .08s linear}
+nav.top .inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:14px}
+.wordmark{font-family:var(--font-display);font-weight:700;font-size:20px;flex-shrink:0}
+.nav-links{display:flex;gap:4px;overflow-x:auto;flex:1;justify-content:center}
+.nav-links a{font-family:var(--font-mono);font-size:12.5px;text-decoration:none;color:var(--ink-soft);padding:8px 13px;border-radius:999px;white-space:nowrap;transition:color .2s ease, background .2s ease}
+.nav-links a:hover{color:var(--ink);background:var(--surface-soft)}
+.nav-links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lang-btn{font-family:var(--font-mono);font-size:12.5px;background:var(--surface-soft);border:1px solid var(--line);color:var(--ink);padding:8px 15px;border-radius:999px;cursor:pointer;flex-shrink:0;transition:background .2s ease, color .2s ease, transform .15s ease}
+.lang-btn:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.lang-btn:active{transform:scale(0.95)}
+.lang-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---- hero ---- */
+.hero{position:relative;padding-block:72px 44px;overflow:hidden}
+.hero .glow{position:absolute;width:560px;height:560px;left:50%;top:-220px;transform:translate(calc(-50% + var(--gx,0px)), var(--gy,0px)) scale(1);background:radial-gradient(circle, color-mix(in srgb, var(--accent) 32%, transparent) 0%, transparent 70%);filter:blur(10px);pointer-events:none;z-index:0;transition:transform .3s ease-out;animation:drift 14s ease-in-out infinite}
+@keyframes drift{0%,100%{opacity:.9}50%{opacity:1}}
+.hero .content{position:relative;z-index:1}
+.hero h1{font-size:clamp(36px, 7vw, 66px);line-height:1.02;letter-spacing:-0.01em;opacity:0;transform:translateY(16px);animation:riseIn .7s cubic-bezier(.2,.8,.2,1) .05s forwards}
+.hero p.sub{margin-top:18px;max-width:54ch;font-size:18px;color:var(--ink-soft);opacity:0;transform:translateY(16px);animation:riseIn .7s cubic-bezier(.2,.8,.2,1) .18s forwards}
+.hero-actions{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(16px);animation:riseIn .7s cubic-bezier(.2,.8,.2,1) .3s forwards}
+@keyframes riseIn{to{opacity:1;transform:translateY(0)}}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:14px;padding:14px 24px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .12s ease, box-shadow .18s ease}
+.btn-primary{background:linear-gradient(100deg, var(--accent), var(--accent2));color:var(--accent-ink);box-shadow:var(--shadow)}
+.btn-primary:hover{box-shadow:0 16px 34px rgba(109,94,240,0.3)}
+.btn-ghost{border-color:var(--line-strong);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{transform:translateY(-2px);background:var(--surface-soft)}
+.btn:active{transform:scale(0.97)}
+.btn-block{width:100%;justify-content:center}
+.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
+
+/* ---- hero demo card ---- */
+.demo{margin-top:48px;max-width:540px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--shadow);overflow:hidden;opacity:0;transform:translateY(16px);animation:riseIn .7s cubic-bezier(.2,.8,.2,1) .42s forwards}
+.demo-tabs{display:flex;gap:8px;padding:16px 16px 0}
+.demo-tab{font-family:var(--font-mono);font-size:12px;padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:var(--surface-soft);cursor:pointer;color:var(--ink-soft);transition:background .2s ease,color .2s ease}
+.demo-tab[aria-selected="true"]{background:linear-gradient(100deg,var(--accent),var(--accent2));color:var(--accent-ink);border-color:transparent}
+.demo-stage{position:relative;height:208px;margin:16px;border-radius:var(--r-md);overflow:hidden;background:#1B1824;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06)}
+.demo-panel{position:absolute;inset:0;padding:20px;opacity:0;transform:translateX(10px) scale(.98);transition:opacity .35s ease, transform .35s ease;pointer-events:none}
+.demo-panel.active{opacity:1;transform:translateX(0) scale(1);pointer-events:auto}
+.demo-panel.before{background:#E7E5E8;color:#55525C}
+.demo-panel.before .ghost-line{height:9px;border-radius:4px;background:#C9C6D1;margin-bottom:9px}
+.demo-panel.before .ghost-line.w1{width:46%}
+.demo-panel.before .ghost-line.w2{width:72%}
+.demo-panel.before .ghost-line.w3{width:34%}
+.demo-panel.before .ghost-tag{display:inline-block;margin-top:14px;font-family:var(--font-mono);font-size:10.5px;background:#D6D3DC;color:#726E7B;padding:4px 10px;border-radius:999px}
+.demo-panel.after{background:linear-gradient(150deg,#201C2E,#2A2240)}
+.demo-panel.after .mini-head{font-family:var(--font-display);font-weight:700;font-size:22px;color:#fff;line-height:1.05;transition:opacity .15s ease}
+.demo-panel.after .mini-sub{margin-top:8px;font-size:12.5px;color:#C9C3E0;max-width:34ch}
+.demo-panel.after .mini-btn{display:inline-block;margin-top:16px;font-family:var(--font-mono);font-size:11px;padding:8px 16px;border-radius:999px;background:linear-gradient(100deg,var(--accent),var(--accent2));color:#fff}
+.demo-caption{padding:14px 20px 18px;font-size:13px;color:var(--ink-soft)}
+.demo-live{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10.5px;color:var(--accent);margin-left:8px}
+.demo-live .dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ---- stat strip ---- */
+.stamp{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:20px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.stamp .field{min-width:0}
+.stamp .field .k{font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);letter-spacing:0.02em}
+.stamp .field .v{margin-top:4px;font-size:14.5px;font-weight:500}
+@media (max-width:620px){.stamp{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}}
+
+/* ---- reveal on scroll ---- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.stagger.in{transition-delay:var(--d,0ms)}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .hero h1,.hero p.sub,.hero-actions,.demo{opacity:1!important;transform:none!important;animation:none!important}
+  .hero .glow{animation:none!important;transition:none!important}
+  .demo-live .dot{animation:none!important}
+  *{transition-duration:0.01ms!important}
+}
+
+/* ---- section shell ---- */
+section{padding-block:60px}
+section + section{border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--font-mono);font-size:12px;color:var(--accent);margin-bottom:10px}
+.section-head h2{font-size:clamp(26px,4vw,36px)}
+.section-head p{color:var(--ink-soft);margin-top:10px;max-width:56ch}
+
+.icon{width:40px;height:40px;border-radius:var(--r-sm);background:var(--surface-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;transition:transform .2s ease, background .2s ease}
+.icon svg{width:20px;height:20px}
+
+/* ---- services cards ---- */
+.specs{margin-top:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.spec-card{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);min-width:0;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+.spec-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--line-strong)}
+.spec-card:hover .icon{background:linear-gradient(135deg, var(--accent), var(--accent2));color:var(--accent-ink);transform:rotate(-6deg) scale(1.05)}
+.spec-card p{font-size:14.5px}
+@media (max-width:620px){.specs{grid-template-columns:1fr}}
+
+/* ---- process timeline ---- */
+.steps{margin-top:36px;display:flex;flex-direction:column;position:relative}
+.step{display:grid;grid-template-columns:48px 1fr;gap:20px;padding-block:24px;position:relative}
+.step .railwrap{position:relative;display:flex;justify-content:center}
+.step .icon{position:relative;z-index:1}
+.step:not(:last-child) .railwrap::after{content:"";position:absolute;top:48px;bottom:-24px;width:2px;background:var(--line-strong);left:50%;transform:translateX(-50%)}
+.step h3{font-size:19px;margin-bottom:6px}
+.step p{color:var(--ink-soft);max-width:56ch}
+
+/* ---- style range ---- */
+.styles{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.swatch{border:1px solid var(--line);border-radius:var(--r-md);padding:20px;min-width:0;background:var(--surface);transition:transform .2s ease, box-shadow .2s ease}
+.swatch:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.swatch .dot-row{display:flex;gap:6px;margin-bottom:14px}
+.swatch .dot{width:14px;height:14px;border-radius:50%}
+.swatch .label{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft)}
+.swatch .headline{font-family:var(--font-display);font-weight:700;font-size:20px;margin-top:6px}
+@media (max-width:700px){.styles{grid-template-columns:1fr}}
+
+/* ---- why / comparison ---- */
+.compare{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.compare-col{border:1px solid var(--line);border-radius:var(--r-md);padding:22px;min-width:0;background:var(--surface)}
+.compare-col.win{border-color:color-mix(in srgb, var(--accent) 45%, var(--line-strong));box-shadow:var(--shadow)}
+.compare-col .head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.compare-col .head .tick{width:26px;height:26px;border-radius:50%;background:var(--surface-soft);color:var(--ink-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.compare-col.win .head .tick{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.compare-col .head h3{font-size:17px}
+.compare-row{display:flex;gap:10px;padding-block:10px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft)}
+.compare-row:first-of-type{border-top:none}
+.compare-col.win .compare-row{color:var(--ink)}
+.compare-row svg{flex-shrink:0;margin-top:2px;color:var(--ink-soft)}
+.compare-col.win .compare-row svg{color:var(--accent)}
+
+.founder-note{margin-top:34px;border-left:3px solid var(--accent);padding:4px 0 4px 22px}
+.founder-note p{font-size:17px;color:var(--ink)}
+.founder-note cite{display:block;margin-top:12px;font-style:normal;font-family:var(--font-mono);font-size:12.5px;color:var(--ink-soft)}
+
+/* ---- pricing ---- */
+.price-card{margin-top:30px;border:1px solid var(--line);border-radius:var(--r-lg);padding:36px;background:linear-gradient(135deg, var(--surface-soft), var(--surface));display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;box-shadow:var(--shadow)}
+.price-card .amount{font-family:var(--font-display);font-size:54px;font-weight:700;line-height:1}
+.price-card .amount small{font-family:var(--font-mono);font-size:16px;color:var(--ink-soft);font-weight:400}
+.price-card .note{max-width:34ch;color:var(--ink-soft)}
+
+/* ---- FAQ ---- */
+.faq{margin-top:30px;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;text-align:left;color:var(--ink);cursor:pointer;padding:20px 4px;font-family:var(--font-body);font-size:16.5px;font-weight:500}
+.faq-q .plus{flex-shrink:0;width:22px;height:22px;position:relative}
+.faq-q .plus::before,.faq-q .plus::after{content:"";position:absolute;background:var(--ink-soft);border-radius:2px;transition:transform .25s ease, background .25s ease}
+.faq-q .plus::before{left:0;top:50%;width:100%;height:2px;transform:translateY(-50%)}
+.faq-q .plus::after{top:0;left:50%;width:2px;height:100%;transform:translateX(-50%)}
+.faq-item[data-open="true"] .faq-q .plus::after{transform:translateX(-50%) rotate(90deg);opacity:0}
+.faq-item[data-open="true"] .faq-q .plus::before{background:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:0 4px 20px;color:var(--ink-soft);max-width:60ch;font-size:15px}
+.faq-item[data-open="true"] .faq-q{color:var(--accent)}
+
+/* ---- inquiry form ---- */
+.inquiry{margin-top:30px;border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;background:var(--surface);box-shadow:var(--shadow)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft)}
+.field input,.field textarea{
+  font:inherit;font-size:15px;color:var(--ink);background:var(--bg);
+  border:1px solid var(--line-strong);border-radius:var(--r-sm);padding:11px 13px;
+  width:100%;transition:border-color .2s ease, box-shadow .2s ease;
+}
+.field input:focus-visible,.field textarea:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent)}
+.field textarea{resize:vertical;min-height:84px;font-family:var(--font-body)}
+.inquiry-actions{margin-top:6px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.inquiry-hint{font-size:12.5px;color:var(--ink-soft);margin-top:10px}
+@media (max-width:560px){.form-row{grid-template-columns:1fr}}
+
+/* ---- contact ---- */
+.contact-sub{margin-top:46px;margin-bottom:-6px}
+.contact-sub .eyebrow{margin-bottom:6px}
+.contact-grid{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-box{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--r-md);padding:22px;min-width:0;background:var(--surface);transition:transform .2s ease, box-shadow .2s ease}
+.contact-box:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.contact-box .k{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);margin-bottom:6px}
+.contact-box .v{font-size:16.5px;font-weight:500;word-break:break-word}
+.copy-btn{margin-top:12px;font-family:var(--font-mono);font-size:12px;background:var(--surface-soft);border:1px solid var(--line);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer;transition:background .2s ease, color .2s ease}
+.copy-btn:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+@media (max-width:620px){.contact-grid{grid-template-columns:1fr}}
+
+footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<div id="page" data-lang="en">
+
+  <nav class="top">
+    <div class="wrap inner">
+      <div class="wordmark">Yazan Mahmoud</div>
+      <div class="nav-links">
+        <a href="#services"><span lang="en">Services</span><span lang="sv">Tjänster</span></a>
+        <a href="#process"><span lang="en">Process</span><span lang="sv">Process</span></a>
+        <a href="#why"><span lang="en">Why me</span><span lang="sv">Varför jag</span></a>
+        <a href="#pricing"><span lang="en">Pricing</span><span lang="sv">Pris</span></a>
+        <a href="#faq"><span lang="en">FAQ</span><span lang="sv">Frågor</span></a>
+        <a href="#contact"><span lang="en">Contact</span><span lang="sv">Kontakt</span></a>
+      </div>
+      <button class="lang-btn" id="langToggle" aria-label="Switch language">SV</button>
+    </div>
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+  </nav>
+
+  <section class="hero wrap">
+    <div class="glow" id="glow"></div>
+    <div class="content">
+      <h1>
+        <span lang="en">Your business needs a landing&nbsp;page.<br>I build it this week.</span>
+        <span lang="sv">Ditt företag behöver en landningssida.<br>Jag bygger den den här veckan.</span>
+      </h1>
+      <p class="sub">
+        <span lang="en">One focused page that explains what you do, builds trust, and makes it easy to book or buy. Live in days, not months.</span>
+        <span lang="sv">En fokuserad sida som visar vad ni gör, skapar förtroende och gör det enkelt att boka eller köpa. Lanseras på dagar, inte månader.</span>
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" id="magnetBtn" href="#contact">
+          <span lang="en">Get a free mockup</span><span lang="sv">Få en gratis skiss</span>
+        </a>
+        <a class="btn btn-ghost" href="#process">
+          <span lang="en">See how it works</span><span lang="sv">Se hur det går till</span>
+        </a>
+      </div>
+
+      <div class="demo">
+        <div class="demo-tabs" role="tablist">
+          <button class="demo-tab" id="tabBefore" role="tab" aria-selected="true">
+            <span lang="en">Before</span><span lang="sv">Innan</span>
+          </button>
+          <button class="demo-tab" id="tabAfter" role="tab" aria-selected="false">
+            <span lang="en">After</span><span lang="sv">Efter</span>
+          </button>
+          <span class="demo-live" id="demoLive" hidden><span class="dot"></span><span lang="en">typing live</span><span lang="sv">skrivs live</span></span>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-panel before active" id="panelBefore">
+            <div class="ghost-line w1"></div>
+            <div class="ghost-line w2"></div>
+            <div class="ghost-line w3"></div>
+            <span class="ghost-tag">
+              <span lang="en">facebook.com/yourbusiness</span>
+              <span lang="sv">facebook.com/dittforetag</span>
+            </span>
+          </div>
+          <div class="demo-panel after" id="panelAfter">
+            <div class="mini-head">
+              <span lang="en" id="miniHeadEn">Smith &amp; Co.</span>
+              <span lang="sv" id="miniHeadSv">Svensson &amp; Co.</span>
+            </div>
+            <div class="mini-sub"><span lang="en">Family-run since 1998. Book your visit in 30 seconds.</span><span lang="sv">Familjeföretag sedan 1998. Boka ditt besök på 30 sekunder.</span></div>
+            <span class="mini-btn"><span lang="en">Book now</span><span lang="sv">Boka nu</span></span>
+          </div>
+        </div>
+        <div class="demo-caption">
+          <span lang="en">Type your business name in the form below — watch it appear here.</span>
+          <span lang="sv">Skriv ditt företagsnamn i formuläret nedan — se det dyka upp här.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stamp wrap">
+    <div class="field">
+      <div class="k"><span lang="en">BASED</span><span lang="sv">BASERAD</span></div>
+      <div class="v"><span lang="en">Kristianstad — works nationwide, remote</span><span lang="sv">Kristianstad — jobbar i hela landet, på distans</span></div>
+    </div>
+    <div class="field">
+      <div class="k"><span lang="en">LANGUAGES</span><span lang="sv">SPRÅK</span></div>
+      <div class="v"><span lang="en">Swedish, English, Arabic</span><span lang="sv">Svenska, engelska, arabiska</span></div>
+    </div>
+    <div class="field">
+      <div class="k"><span lang="en">TURNAROUND</span><span lang="sv">LEVERANSTID</span></div>
+      <div class="v"><span lang="en">3–5 days</span><span lang="sv">3–5 dagar</span></div>
+    </div>
+    <div class="field">
+      <div class="k"><span lang="en">STATUS</span><span lang="sv">STATUS</span></div>
+      <div class="v"><span lang="en">Taking new projects</span><span lang="sv">Tar nya projekt</span></div>
+    </div>
+  </div>
+
+  <section id="services" class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow mono"><span lang="en">What's included</span><span lang="sv">Det här ingår</span></div>
+      <h2><span lang="en">One page, built properly</span><span lang="sv">En sida, ordentligt byggd</span></h2>
+    </div>
+    <div class="specs">
+      <div class="spec-card reveal stagger" style="--d:0ms">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6L8 22H2v-6z"/></svg></div>
+        <p><span lang="en">One custom landing page, built from scratch</span><span lang="sv">En skräddarsydd landningssida, byggd från grunden</span></p>
+      </div>
+      <div class="spec-card reveal stagger" style="--d:60ms">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <p><span lang="en">Mobile-first, loads fast, no bloat</span><span lang="sv">Mobilanpassad, snabb, inget onödigt</span></p>
+      </div>
+      <div class="spec-card reveal stagger" style="--d:120ms">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <p><span lang="en">Copy written or polished together with you</span><span lang="sv">Text skriven eller putsad tillsammans med dig</span></p>
+      </div>
+      <div class="spec-card reveal stagger" style="--d:180ms">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+        <p><span lang="en">Contact or booking section included</span><span lang="sv">Kontakt- eller bokningssektion ingår</span></p>
+      </div>
+      <div class="spec-card reveal stagger" style="--d:240ms">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="12" r="4"/><circle cx="17" cy="12" r="4"/></svg></div>
+        <p><span lang="en">Unlimited revisions until you're happy</span><span lang="sv">Obegränsade justeringar tills du är nöjd</span></p>
+      </div>
+      <div class="spec-card reveal stagger" style="--d:300ms">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></div>
+        <p><span lang="en">You own the code — no subscriptions</span><span lang="sv">Du äger koden — inga prenumerationer</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow mono"><span lang="en">How it works</span><span lang="sv">Så går det till</span></div>
+      <h2><span lang="en">Four steps, start to live</span><span lang="sv">Fyra steg, från start till live</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="railwrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div></div>
+        <div>
+          <h3><span lang="en">Foundation</span><span lang="sv">Grund</span></h3>
+          <p><span lang="en">We talk through your business, your customers, and what the page needs to do.</span><span lang="sv">Vi pratar igenom ditt företag, dina kunder och vad sidan behöver göra.</span></p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="railwrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
+        <div>
+          <h3><span lang="en">Framing</span><span lang="sv">Stomme</span></h3>
+          <p><span lang="en">You get a working draft within 48 hours to react to.</span><span lang="sv">Du får ett fungerande utkast inom 48 timmar att reagera på.</span></p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="railwrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.2 6.6H21l-5.4 4 2 6.6L12 15.8 6.4 19.2l2-6.6-5.4-4h6.8z"/></svg></div></div>
+        <div>
+          <h3><span lang="en">Finish</span><span lang="sv">Finish</span></h3>
+          <p><span lang="en">We refine copy, layout and details until it feels right.</span><span lang="sv">Vi finslipar text, layout och detaljer tills det känns rätt.</span></p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="railwrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div></div>
+        <div>
+          <h3><span lang="en">Handover</span><span lang="sv">Överlämning</span></h3>
+          <p><span lang="en">Your page goes live. You get the files — nothing else to pay for.</span><span lang="sv">Sidan går live. Du får filerna — inget mer att betala för.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="range" class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow mono"><span lang="en">Style range</span><span lang="sv">Stilspann</span></div>
+      <h2><span lang="en">Built to match your business</span><span lang="sv">Byggd efter ditt företag</span></h2>
+      <p><span lang="en">This page is the proof of craft — the same care goes into whatever fits your brand, from restrained and professional to bold and loud.</span><span lang="sv">Den här sidan är beviset på hantverket — samma omsorg läggs på det som passar ditt varumärke, från återhållsamt och professionellt till djärvt och högljutt.</span></p>
+    </div>
+    <div class="styles">
+      <div class="swatch reveal stagger" style="--d:0ms">
+        <div class="dot-row"><div class="dot" style="background:#6D5EF0"></div><div class="dot" style="background:#16131F"></div><div class="dot" style="background:#FAFAF9"></div></div>
+        <div class="label mono"><span lang="en">RESTRAINED</span><span lang="sv">ÅTERHÅLLSAM</span></div>
+        <div class="headline"><span lang="en">Clean &amp; trusted</span><span lang="sv">Rent &amp; pålitligt</span></div>
+      </div>
+      <div class="swatch reveal stagger" style="--d:80ms">
+        <div class="dot-row"><div class="dot" style="background:#C6502E"></div><div class="dot" style="background:#2B1B12"></div><div class="dot" style="background:#F3E9DE"></div></div>
+        <div class="label mono"><span lang="en">WARM</span><span lang="sv">VARM</span></div>
+        <div class="headline"><span lang="en">Local &amp; personal</span><span lang="sv">Lokal &amp; personlig</span></div>
+      </div>
+      <div class="swatch reveal stagger" style="--d:160ms">
+        <div class="dot-row"><div class="dot" style="background:#17C784"></div><div class="dot" style="background:#0B0F0D"></div><div class="dot" style="background:#E4F3EC"></div></div>
+        <div class="label mono"><span lang="en">BOLD</span><span lang="sv">DJÄRV</span></div>
+        <div class="headline"><span lang="en">Loud &amp; confident</span><span lang="sv">Högljudd &amp; självsäker</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow mono"><span lang="en">Why not just use a builder?</span><span lang="sv">Varför inte bara använda en byggare?</span></div>
+      <h2><span lang="en">A real page vs. a DIY template</span><span lang="sv">En riktig sida vs. en DIY-mall</span></h2>
+    </div>
+    <div class="compare">
+      <div class="compare-col win reveal">
+        <div class="head">
+          <span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+          <h3><span lang="en">Built for you</span><span lang="sv">Byggd åt dig</span></h3>
+        </div>
+        <div class="compare-row"><span lang="en">3–5 days, done for you</span><span lang="sv">3–5 dagar, gjort åt dig</span></div>
+        <div class="compare-row"><span lang="en">One payment, yours forever</span><span lang="sv">En betalning, din för alltid</span></div>
+        <div class="compare-row"><span lang="en">A developer who asks about your business first</span><span lang="sv">En utvecklare som frågar om ditt företag först</span></div>
+      </div>
+      <div class="compare-col reveal" style="transition-delay:80ms">
+        <div class="head">
+          <span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+          <h3><span lang="en">DIY builder</span><span lang="sv">DIY-byggare</span></h3>
+        </div>
+        <div class="compare-row"><span lang="en">Hours of trial and error, done by you</span><span lang="sv">Timmar av eget trial-and-error</span></div>
+        <div class="compare-row"><span lang="en">Monthly subscription, forever</span><span lang="sv">Månadsavgift, för alltid</span></div>
+        <div class="compare-row"><span lang="en">A template that looks like everyone else's</span><span lang="sv">En mall som ser ut som alla andras</span></div>
+      </div>
+    </div>
+
+    <blockquote class="founder-note reveal">
+      <p><span lang="en">I'm building my first client pages right now — which means more of my attention, faster replies, and a price that won't stay this low once I'm booked up.</span><span lang="sv">Jag bygger mina första kundsidor just nu — det betyder mer uppmärksamhet från mig, snabbare svar och ett pris som inte förblir så här lågt när jag är fullbokad.</span></p>
+      <cite>— Yazan</cite>
+    </blockquote>
+  </section>
+
+  <section id="pricing" class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow mono"><span lang="en">Pricing</span><span lang="sv">Pris</span></div>
+      <h2><span lang="en">One fixed price</span><span lang="sv">Ett fast pris</span></h2>
+    </div>
+    <div class="price-card reveal">
+      <div class="amount">1 500 kr <small>(~$150)</small></div>
+      <p class="note">
+        <span lang="en">Per page, fixed before I start. No hourly surprises, no hidden costs.</span>
+        <span lang="sv">Per sida, fastställt innan jag börjar. Inga timöverraskningar, inga dolda kostnader.</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="faq" class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow mono"><span lang="en">Questions</span><span lang="sv">Frågor</span></div>
+      <h2><span lang="en">Before you ask</span><span lang="sv">Innan du frågar</span></h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item" data-open="false">
+        <button class="faq-q">
+          <span><span lang="en">What if I don't like the design?</span><span lang="sv">Vad händer om jag inte gillar designen?</span></span>
+          <span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p><span lang="en">You get unlimited revisions until it looks right. The price doesn't change.</span><span lang="sv">Du får obegränsade justeringar tills det ser rätt ut. Priset ändras inte.</span></p></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button class="faq-q">
+          <span><span lang="en">Do I need to know anything technical?</span><span lang="sv">Behöver jag kunna något tekniskt?</span></span>
+          <span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p><span lang="en">No. Tell me what your business does and who your customers are — I handle the rest.</span><span lang="sv">Nej. Berätta vad ditt företag gör och vilka dina kunder är — jag sköter resten.</span></p></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button class="faq-q">
+          <span><span lang="en">Can the page be in Arabic too?</span><span lang="sv">Kan sidan vara på arabiska också?</span></span>
+          <span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p><span lang="en">Yes — I write and build in Swedish, English or Arabic, including right-to-left layout.</span><span lang="sv">Ja — jag skriver och bygger på svenska, engelska eller arabiska, inklusive höger-till-vänster-layout.</span></p></div>
+      </div>
+      <div class="faq-item" data-open="false">
+        <button class="faq-q">
+          <span><span lang="en">What happens after it's live?</span><span lang="sv">Vad händer efter att den är live?</span></span>
+          <span class="plus" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p><span lang="en">You get the files and I walk you through getting it online. No subscriptions, no lock-in.</span><span lang="sv">Du får filerna och jag visar hur du får den på nätet. Inga prenumerationer, ingen inlåsning.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow mono"><span lang="en">Get started</span><span lang="sv">Kom igång</span></div>
+      <h2><span lang="en">Let's build yours</span><span lang="sv">Nu bygger vi din</span></h2>
+      <p><span lang="en">Fill this in and send it straight to my WhatsApp — I reply within a day.</span><span lang="sv">Fyll i och skicka direkt till mitt WhatsApp — jag svarar inom en dag.</span></p>
+    </div>
+
+    <form class="inquiry reveal" id="inquiryForm">
+      <div class="form-row">
+        <div class="field">
+          <label for="leadName"><span lang="en">Your name</span><span lang="sv">Ditt namn</span></label>
+          <input type="text" id="leadName" name="name" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="leadBusiness"><span lang="en">Business name</span><span lang="sv">Företagsnamn</span></label>
+          <input type="text" id="leadBusiness" name="business" autocomplete="organization">
+        </div>
+      </div>
+      <div class="field">
+        <label for="leadNeed"><span lang="en">What do you need?</span><span lang="sv">Vad behöver du?</span></label>
+        <textarea id="leadNeed" name="need" lang="en" placeholder="A page where people can see our menu and book a table"></textarea>
+      </div>
+      <div class="inquiry-actions">
+        <a class="btn btn-primary" id="waLink" href="https://wa.me/46707358046" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+          <span lang="en">Send via WhatsApp</span><span lang="sv">Skicka via WhatsApp</span>
+        </a>
+        <button type="button" class="btn btn-ghost" id="copyMessage">
+          <span lang="en">Copy message instead</span><span lang="sv">Kopiera meddelandet istället</span>
+        </button>
+      </div>
+      <p class="inquiry-hint">
+        <span lang="en">Opens WhatsApp with your message already written — you just hit send.</span>
+        <span lang="sv">Öppnar WhatsApp med ditt meddelande redan skrivet — du trycker bara skicka.</span>
+      </p>
+    </form>
+
+    <div class="contact-sub">
+      <div class="eyebrow mono"><span lang="en">Prefer to reach out directly?</span><span lang="sv">Vill du höra av dig direkt istället?</span></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-box reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></div>
+        <div>
+          <div class="k mono">EMAIL</div>
+          <div class="v" id="emailText">yayazan.mahmoud@gmail.com</div>
+          <button class="copy-btn" id="copyEmail"><span lang="en">Copy email</span><span lang="sv">Kopiera e-post</span></button>
+        </div>
+      </div>
+      <div class="contact-box reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2A16 16 0 013 5z"/></svg></div>
+        <div>
+          <div class="k mono">WHATSAPP</div>
+          <div class="v" id="phoneText">+46 70 735 80 46</div>
+          <button class="copy-btn" id="copyPhone"><span lang="en">Copy number</span><span lang="sv">Kopiera nummer</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>Yazan Mahmoud — Kristianstad, Sweden</span>
+    <span class="mono">© 2026</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var page = document.getElementById('page');
+  var btn = document.getElementById('langToggle');
+  var reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function setLang(lang){
+    page.setAttribute('data-lang', lang);
+    btn.textContent = lang === 'en' ? 'SV' : 'EN';
+    try { localStorage.setItem('yazan-lang', lang); } catch(e){}
+    updateWaLink();
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('yazan-lang'); } catch(e){}
+
+  btn.addEventListener('click', function(){
+    var next = page.getAttribute('data-lang') === 'en' ? 'sv' : 'en';
+    if (reduceMotionQuery.matches) { setLang(next); return; }
+    page.classList.add('lang-fade');
+    setTimeout(function(){
+      setLang(next);
+      requestAnimationFrame(function(){ page.classList.remove('lang-fade'); });
+    }, 160);
+  });
+
+  /* copy buttons (static text) */
+  function wireCopy(btnId, textId){
+    var b = document.getElementById(btnId);
+    var t = document.getElementById(textId);
+    b.addEventListener('click', function(){
+      copyValue(t.textContent.trim(), b);
+    });
+  }
+  function copyValue(value, b){
+    var original = b.innerHTML;
+    function flash(){
+      var isEn = page.getAttribute('data-lang') === 'en';
+      b.textContent = isEn ? 'Copied' : 'Kopierat';
+      setTimeout(function(){ b.innerHTML = original; }, 1400);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(value).then(flash, function(){ flash(); });
+    } else { flash(); }
+  }
+  wireCopy('copyEmail','emailText');
+  wireCopy('copyPhone','phoneText');
+
+  /* reveal on scroll */
+  var targets = document.querySelectorAll('.reveal');
+  if (reduceMotionQuery.matches || !('IntersectionObserver' in window)) {
+    targets.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach(function(el){ io.observe(el); });
+  }
+
+  /* scroll progress bar */
+  var bar = document.getElementById('progressBar');
+  var ticking = false;
+  function updateProgress(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
+  }, { passive: true });
+  updateProgress();
+
+  /* hero glow parallax */
+  var heroEl = document.querySelector('.hero');
+  var glow = document.getElementById('glow');
+  if (heroEl && glow && !reduceMotionQuery.matches && window.matchMedia('(hover: hover)').matches) {
+    heroEl.addEventListener('mousemove', function(e){
+      var r = heroEl.getBoundingClientRect();
+      var mx = ((e.clientX - r.left) / r.width - 0.5) * 40;
+      var my = ((e.clientY - r.top) / r.height - 0.5) * 40;
+      glow.style.setProperty('--gx', mx + 'px');
+      glow.style.setProperty('--gy', my + 'px');
+    });
+    heroEl.addEventListener('mouseleave', function(){
+      glow.style.setProperty('--gx', '0px');
+      glow.style.setProperty('--gy', '0px');
+    });
+  }
+
+  /* magnetic primary button */
+  var magnet = document.getElementById('magnetBtn');
+  if (magnet && !reduceMotionQuery.matches && window.matchMedia('(hover: hover)').matches) {
+    magnet.addEventListener('mousemove', function(e){
+      var r = magnet.getBoundingClientRect();
+      var mx = (e.clientX - r.left - r.width / 2) * 0.25;
+      var my = (e.clientY - r.top - r.height / 2) * 0.35;
+      magnet.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    });
+    magnet.addEventListener('mouseleave', function(){
+      magnet.style.transform = 'translate(0,0)';
+    });
+  }
+
+  /* before/after demo */
+  var tabBefore = document.getElementById('tabBefore');
+  var tabAfter = document.getElementById('tabAfter');
+  var panelBefore = document.getElementById('panelBefore');
+  var panelAfter = document.getElementById('panelAfter');
+  var demoLive = document.getElementById('demoLive');
+  function showPanel(which){
+    var isAfter = which === 'after';
+    tabBefore.setAttribute('aria-selected', String(!isAfter));
+    tabAfter.setAttribute('aria-selected', String(isAfter));
+    panelBefore.classList.toggle('active', !isAfter);
+    panelAfter.classList.toggle('active', isAfter);
+  }
+  tabBefore.addEventListener('click', function(){ showPanel('before'); });
+  tabAfter.addEventListener('click', function(){ showPanel('after'); });
+
+  /* live personalization: typing a business name updates the mock "after" page */
+  var nameInput = document.getElementById('leadName');
+  var businessInput = document.getElementById('leadBusiness');
+  var needInput = document.getElementById('leadNeed');
+  var miniHeadEn = document.getElementById('miniHeadEn');
+  var miniHeadSv = document.getElementById('miniHeadSv');
+  var switchedToAfter = false;
+  businessInput.addEventListener('input', function(){
+    var val = businessInput.value.trim();
+    miniHeadEn.textContent = val || 'Smith & Co.';
+    miniHeadSv.textContent = val || 'Svensson & Co.';
+    if (val && !switchedToAfter) {
+      switchedToAfter = true;
+      showPanel('after');
+      demoLive.hidden = false;
+    }
+    if (!val) { demoLive.hidden = true; switchedToAfter = false; }
+    updateWaLink();
+  });
+
+  /* whatsapp inquiry link */
+  var waLink = document.getElementById('waLink');
+  function buildMessage(){
+    var lang = page.getAttribute('data-lang');
+    var name = nameInput.value.trim();
+    var biz = businessInput.value.trim();
+    var need = needInput.value.trim();
+    var msg;
+    if (lang === 'sv') {
+      msg = 'Hej Yazan!' + (name ? ' Jag heter ' + name + '.' : '') + ' Jag är intresserad av en landningssida' + (biz ? ' för ' + biz : '') + '.';
+      if (need) msg += ' ' + need;
+    } else {
+      msg = 'Hi Yazan!' + (name ? ' I’m ' + name + '.' : '') + ' I’m interested in a landing page' + (biz ? ' for ' + biz : '') + '.';
+      if (need) msg += ' ' + need;
+    }
+    return msg;
+  }
+  function updateWaLink(){
+    waLink.href = 'https://wa.me/46707358046?text=' + encodeURIComponent(buildMessage());
+  }
+  [nameInput, needInput].forEach(function(el){ el.addEventListener('input', updateWaLink); });
+  updateWaLink();
+  setLang(saved === 'sv' ? 'sv' : 'en');
+
+  document.getElementById('inquiryForm').addEventListener('submit', function(e){ e.preventDefault(); });
+  document.getElementById('copyMessage').addEventListener('click', function(e){
+    copyValue(buildMessage(), e.currentTarget);
+  });
+
+  /* faq accordion */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open = item.getAttribute('data-open') === 'true';
+      document.querySelectorAll('.faq-item').forEach(function(other){
+        other.setAttribute('data-open', 'false');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!open) {
+        item.setAttribute('data-open', 'true');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+</script>
+
+</body></html>
