@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#FAFAF9">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#F7F5F0">
 <title>Landing pages for small businesses in Sweden | Yazan Mahmoud</title><meta name="description" content="Custom landing pages for small businesses in Sweden. Clear design, mobile-first layouts and a simple path to calls, bookings and quote requests."><meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://yazoniplay.is-a.dev/en/"><link rel="alternate" hreflang="sv-SE" href="https://yazoniplay.is-a.dev/"><link rel="alternate" hreflang="en-SE" href="https://yazoniplay.is-a.dev/en/"><link rel="alternate" hreflang="x-default" href="https://yazoniplay.is-a.dev/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Yazan Mahmoud"><meta property="og:title" content="Landing pages for small businesses in Sweden | Yazan Mahmoud"><meta property="og:description" content="Custom landing pages for small businesses in Sweden. Clear design, mobile-first layouts and a simple path to calls, bookings and quote requests."><meta property="og:url" content="https://yazoniplay.is-a.dev/en/"><meta property="og:image" content="https://yazoniplay.is-a.dev/og.svg"><meta property="og:locale" content="en_SE">
@@ -17,31 +17,31 @@
     fabricated testimonials, and a builder-vs-custom comparison to pre-empt "I'll just use Wix".
 */
 :root{
-  --bg:#FAFAF9;
-  --surface:#FFFFFF;
-  --surface-soft:#F2F0FB;
-  --ink:#16131F;
-  --ink-soft:#655F72;
-  --accent:#6253E8;
-  --accent2:#C44735;
+  --bg:#F7F5F0;
+  --surface:#FFFEFB;
+  --surface-soft:#ECEFE9;
+  --ink:#1D2922;
+  --ink-soft:#58665D;
+  --accent:#2E5A46;
+  --accent2:#A65337;
   --accent-ink:#FFFFFF;
-  --line:rgba(22,19,31,0.10);
-  --line-strong:rgba(22,19,31,0.20);
-  --shadow:0 10px 30px rgba(22,19,31,0.08);
-  --font-display:'Arial Narrow','Roboto Condensed',Impact,system-ui,sans-serif;
-  --font-body:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --line:rgba(29,41,34,0.12);
+  --line-strong:rgba(29,41,34,0.22);
+  --shadow:0 10px 28px rgba(29,41,34,0.07);
+  --font-display:Georgia,'Times New Roman',serif;
+  --font-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --font-mono:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',monospace;
-  --r-lg:18px;
-  --r-md:12px;
-  --r-sm:8px;
+  --r-lg:12px;
+  --r-md:10px;
+  --r-sm:6px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0F0D16; --surface:#1A1723; --surface-soft:#211D30;
-    --ink:#F5F3FA; --ink-soft:#A79FBC;
-    --accent:#A79BFF; --accent2:#FF9B88; --accent-ink:#13111C;
-    --line:rgba(245,243,250,0.12); --line-strong:rgba(245,243,250,0.24);
-    --shadow:0 10px 30px rgba(0,0,0,0.4);
+    --bg:#111914; --surface:#1A241D; --surface-soft:#222F26;
+    --ink:#F2F4EF; --ink-soft:#B4C0B5;
+    --accent:#A6D0B5; --accent2:#E5A087; --accent-ink:#101713;
+    --line:rgba(242,244,239,0.13); --line-strong:rgba(242,244,239,0.24);
+    --shadow:0 10px 28px rgba(0,0,0,0.34);
     color-scheme:dark;
   }
 }
@@ -76,14 +76,14 @@ p{margin:0;line-height:1.6}
 /* ---- nav + progress ---- */
 nav.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:19;background:color-mix(in srgb, var(--surface) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .progress{height:2px;background:var(--line);overflow:hidden}
-.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .08s linear}
+.progress-bar{height:100%;width:0%;background:var(--accent2);transition:width .08s linear}
 nav.top .inner{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:14px}
 .wordmark{font-family:var(--font-display);font-weight:700;font-size:20px;flex-shrink:0}
 .nav-links{display:flex;gap:4px;overflow-x:auto;flex:1;justify-content:center}
 .nav-links a{font-family:var(--font-mono);font-size:12.5px;text-decoration:none;color:var(--ink-soft);padding:8px 13px;border-radius:999px;white-space:nowrap;transition:color .2s ease, background .2s ease}
 .nav-links a:hover{color:var(--ink);background:var(--surface-soft)}
 .nav-links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.lang-btn{font-family:var(--font-mono);font-size:12.5px;background:var(--surface-soft);border:1px solid var(--line);color:var(--ink);padding:8px 15px;border-radius:999px;cursor:pointer;flex-shrink:0;transition:background .2s ease, color .2s ease, transform .15s ease}
+.lang-btn{font-family:var(--font-mono);font-size:12.5px;background:var(--surface-soft);border:1px solid var(--line);color:var(--ink);padding:8px 15px;border-radius:8px;cursor:pointer;flex-shrink:0;transition:background .2s ease, color .2s ease, transform .15s ease}
 .lang-btn:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .lang-btn:active{transform:scale(0.95)}
 .lang-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -98,8 +98,8 @@ nav.top .inner{display:flex;align-items:center;justify-content:space-between;gap
 .hero-actions{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(16px);animation:riseIn .7s cubic-bezier(.2,.8,.2,1) .3s forwards}
 @keyframes riseIn{to{opacity:1;transform:translateY(0)}}
 
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:14px;padding:14px 24px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .12s ease, box-shadow .18s ease}
-.btn-primary{background:linear-gradient(100deg, var(--accent), var(--accent2));color:var(--accent-ink);box-shadow:var(--shadow)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:14px;padding:14px 24px;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .12s ease, box-shadow .18s ease}
+.btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow)}
 .btn-primary:hover{box-shadow:0 16px 34px rgba(109,94,240,0.3)}
 .btn-ghost{border-color:var(--line-strong);color:var(--ink);background:var(--surface)}
 .btn-ghost:hover{transform:translateY(-2px);background:var(--surface-soft)}
@@ -111,7 +111,7 @@ nav.top .inner{display:flex;align-items:center;justify-content:space-between;gap
 .demo{margin-top:48px;max-width:540px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--shadow);overflow:hidden;opacity:0;transform:translateY(16px);animation:riseIn .7s cubic-bezier(.2,.8,.2,1) .42s forwards}
 .demo-tabs{display:flex;gap:8px;padding:16px 16px 0}
 .demo-tab{font-family:var(--font-mono);font-size:12px;padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:var(--surface-soft);cursor:pointer;color:var(--ink-soft);transition:background .2s ease,color .2s ease}
-.demo-tab[aria-selected="true"]{background:linear-gradient(100deg,var(--accent),var(--accent2));color:var(--accent-ink);border-color:transparent}
+.demo-tab[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .demo-stage{position:relative;height:208px;margin:16px;border-radius:var(--r-md);overflow:hidden;background:#1B1824;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06)}
 .demo-panel{position:absolute;inset:0;padding:20px;opacity:0;transform:translateX(10px) scale(.98);transition:opacity .35s ease, transform .35s ease;pointer-events:none}
 .demo-panel.active{opacity:1;transform:translateX(0) scale(1);pointer-events:auto}
@@ -163,7 +163,7 @@ section + section{border-top:1px solid var(--line)}
 .specs{margin-top:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .spec-card{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);min-width:0;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
 .spec-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--line-strong)}
-.spec-card:hover .icon{background:linear-gradient(135deg, var(--accent), var(--accent2));color:var(--accent-ink);transform:rotate(-6deg) scale(1.05)}
+.spec-card:hover .icon{background:var(--accent);color:var(--accent-ink);transform:rotate(-3deg) scale(1.03)}
 .spec-card p{font-size:14.5px}
 @media (max-width:620px){.specs{grid-template-columns:1fr}}
 
@@ -192,7 +192,7 @@ section + section{border-top:1px solid var(--line)}
 .compare-col.win{border-color:color-mix(in srgb, var(--accent) 45%, var(--line-strong));box-shadow:var(--shadow)}
 .compare-col .head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .compare-col .head .tick{width:26px;height:26px;border-radius:50%;background:var(--surface-soft);color:var(--ink-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.compare-col.win .head .tick{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.compare-col.win .head .tick{background:var(--accent);color:var(--accent-ink)}
 .compare-col .head h3{font-size:17px}
 .compare-row{display:flex;gap:10px;padding-block:10px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-soft)}
 .compare-row:first-of-type{border-top:none}
@@ -205,7 +205,7 @@ section + section{border-top:1px solid var(--line)}
 .founder-note cite{display:block;margin-top:12px;font-style:normal;font-family:var(--font-mono);font-size:12.5px;color:var(--ink-soft)}
 
 /* ---- pricing ---- */
-.price-card{margin-top:30px;border:1px solid var(--line);border-radius:var(--r-lg);padding:36px;background:linear-gradient(135deg, var(--surface-soft), var(--surface));display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;box-shadow:var(--shadow)}
+.price-card{margin-top:30px;border:1px solid var(--line);border-radius:var(--r-lg);padding:36px;background:var(--surface-soft);display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;box-shadow:var(--shadow)}
 .price-card .amount{font-family:var(--font-display);font-size:54px;font-weight:700;line-height:1}
 .price-card .amount small{font-family:var(--font-mono);font-size:16px;color:var(--ink-soft);font-weight:400}
 .price-card .note{max-width:34ch;color:var(--ink-soft)}
@@ -258,9 +258,9 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
 .sample-grid{margin-top:42px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.sample-card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--shadow)}
 .sample-preview{min-height:205px;padding:14px;display:flex;align-items:center;justify-content:center}.sample-preview.cafe{background:#F0E8DA}.sample-preview.service{background:#E8EEF0}.sample-preview.salon{background:#F0E6E7}
 .sample-window{width:100%;max-width:260px;min-height:158px;padding:15px;border-radius:10px;background:#fff;box-shadow:0 8px 24px rgba(20,20,30,.12);color:#25222A}
-.sample-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font:700 9px ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#5B5363}.sample-top i{width:7px;height:7px;border-radius:50%;background:#C44735;display:inline-block}
-.sample-window h3{font:700 25px/1.02 'Arial Narrow','Roboto Condensed',Impact,sans-serif;letter-spacing:-.03em;margin:20px 0 7px;color:#211D28}.sample-window p{font:11px/1.45 Arial,sans-serif;color:#716B76;max-width:28ch}
-.sample-cta{display:inline-block;margin-top:13px;padding:7px 11px;border-radius:99px;background:#6253E8;color:#fff;font:700 9px ui-monospace,monospace}
+.sample-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font:700 9px ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#5B5363}.sample-top i{width:7px;height:7px;border-radius:50%;background:var(--accent2);display:inline-block}
+.sample-window h3{font:700 25px/1.02 Georgia,serif;letter-spacing:-.03em;margin:20px 0 7px;color:#211D28}.sample-window p{font:11px/1.45 Arial,sans-serif;color:#716B76;max-width:28ch}
+.sample-cta{display:inline-block;margin-top:13px;padding:7px 11px;border-radius:99px;background:var(--accent);color:var(--accent-ink);font:700 9px ui-monospace,monospace}
 .sample-caption{padding:15px 17px 17px}.sample-caption strong{display:block;font-size:14px;margin-bottom:4px}.sample-caption span{font-size:12px;color:var(--ink-soft);line-height:1.5}
 .expectation-grid{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.expectation-card{padding:22px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
 .expectation-card h3{font-size:18px;margin-bottom:8px}.expectation-card p{font-size:14px;color:var(--ink-soft);line-height:1.6}.founder-note{margin-top:24px}
@@ -407,27 +407,11 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
   </section>
 
   <section id="range" class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow mono"><span lang="en">Style range</span></div>
-      <h2><span lang="en">Built to match your business</span></h2>
-      <p><span lang="en">This page is the proof of craft — the same care goes into whatever fits your brand, from restrained and professional to bold and loud.</span></p>
-    </div>
+    <div class="section-head reveal"><div class="eyebrow mono">Visual direction</div><h2>A look that fits your business</h2><p>Choose a visual direction that fits your brand — from clean and understated to warm and expressive.</p></div>
     <div class="styles">
-      <div class="swatch reveal stagger" style="--d:0ms">
-        <div class="dot-row"><div class="dot" style="background:#6D5EF0"></div><div class="dot" style="background:#16131F"></div><div class="dot" style="background:#FAFAF9"></div></div>
-        <div class="label mono"><span lang="en">RESTRAINED</span></div>
-        <div class="headline"><span lang="en">Clean &amp; trusted</span></div>
-      </div>
-      <div class="swatch reveal stagger" style="--d:80ms">
-        <div class="dot-row"><div class="dot" style="background:#C6502E"></div><div class="dot" style="background:#2B1B12"></div><div class="dot" style="background:#F3E9DE"></div></div>
-        <div class="label mono"><span lang="en">WARM</span></div>
-        <div class="headline"><span lang="en">Local &amp; personal</span></div>
-      </div>
-      <div class="swatch reveal stagger" style="--d:160ms">
-        <div class="dot-row"><div class="dot" style="background:#17C784"></div><div class="dot" style="background:#0B0F0D"></div><div class="dot" style="background:#E4F3EC"></div></div>
-        <div class="label mono"><span lang="en">BOLD</span></div>
-        <div class="headline"><span lang="en">Loud &amp; confident</span></div>
-      </div>
+      <div class="swatch reveal stagger" style="--d:0ms"><div class="dot-row"><div class="dot" style="background:#2E5A46"></div><div class="dot" style="background:#1D2922"></div><div class="dot" style="background:#F7F5F0"></div></div><div class="label mono">UNDERSTATED</div><div class="headline">Clean &amp; trusted</div></div>
+      <div class="swatch reveal stagger" style="--d:80ms"><div class="dot-row"><div class="dot" style="background:#A65337"></div><div class="dot" style="background:#2B1B12"></div><div class="dot" style="background:#F3E9DE"></div></div><div class="label mono">WARM</div><div class="headline">Local &amp; personal</div></div>
+      <div class="swatch reveal stagger" style="--d:160ms"><div class="dot-row"><div class="dot" style="background:#B5C7A6"></div><div class="dot" style="background:#24352A"></div><div class="dot" style="background:#E6EEE3"></div></div><div class="label mono">EXPRESSIVE</div><div class="headline">Clear &amp; confident</div></div>
     </div>
   </section>
 
