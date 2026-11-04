@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yazoniplay.is-a.dev/sitemap.xml
