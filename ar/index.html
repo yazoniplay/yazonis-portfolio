@@ -561,7 +561,8 @@ function updateWaLink(){waLink.href='https://wa.me/46707358046?text='+encodeURIC
 var form=document.getElementById('inquiryForm');
 function validateForm(){
   if(!form)return true;
-  var message=lang==='sv'?'Fyll i det här fältet.':lang==='ar'?'يرجى ملء هذا الحقل.':'Please fill out this field.';
+  var documentLang=(document.documentElement.getAttribute('lang')||'en').toLowerCase();
+  var message=documentLang.indexOf('sv')===0?'Fyll i det här fältet.':documentLang.indexOf('ar')===0?'يرجى ملء هذا الحقل.':'Please fill out this field.';
   [nameInput,businessInput].forEach(function(input){input.setCustomValidity(input.value.trim()?'':message);});
   return form.reportValidity();
 }
