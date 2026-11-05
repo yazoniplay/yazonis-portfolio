@@ -239,6 +239,7 @@ section + section{border-top:1px solid var(--line)}
 .field textarea{resize:vertical;min-height:84px;font-family:var(--font-body)}
 .inquiry-actions{margin-top:6px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .inquiry-hint{font-size:12.5px;color:var(--ink-soft);margin-top:10px}
+.form-error{margin:0 0 12px;padding:10px 12px;border:1px solid color-mix(in srgb, var(--accent2) 45%, var(--line));border-radius:var(--r-sm);background:color-mix(in srgb, var(--accent2) 8%, var(--surface));color:var(--accent2);font-size:13px}
 @media (max-width:560px){.form-row{grid-template-columns:1fr}}
 
 /* ---- contact ---- */
@@ -492,6 +493,7 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
         <label for="leadNeed"><span lang="sv">Vad behöver du?</span></label>
         <textarea id="leadNeed" name="need" lang="sv" placeholder="Beskriv kort vad du behöver, till exempel en meny och bordsbokning"></textarea>
       </div>
+      <p class="form-error" id="formError" role="alert" aria-live="polite" hidden></p>
       <div class="inquiry-actions">
         <a class="btn btn-primary" id="waLink" href="https://wa.me/46707358046" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 012-2h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
@@ -556,14 +558,23 @@ var magnet=document.getElementById('magnetBtn');if(magnet&&!reduceMotion&&window
 var nameInput=document.getElementById('leadName'),businessInput=document.getElementById('leadBusiness'),needInput=document.getElementById('leadNeed'),waLink=document.getElementById('waLink');
 function buildMessage(){var name=nameInput.value.trim(),business=businessInput.value.trim(),need=needInput.value.trim();var msg=lang==='sv'?'Hej Yazan!'+(name?' Jag heter '+name+'.':'')+' Jag vill gärna prata om en landningssida'+(business?' för '+business:'')+'.':'Hi Yazan!'+(name?' I’m '+name+'.':'')+' I’d like to discuss a landing page'+(business?' for '+business:'')+'.';return msg+(need?' '+need:'');}
 function updateWaLink(){waLink.href='https://wa.me/46707358046?text='+encodeURIComponent(buildMessage());}
-[nameInput,businessInput,needInput].forEach(function(input){input.addEventListener('input',function(){nameInput.setCustomValidity('');businessInput.setCustomValidity('');updateWaLink();});});updateWaLink();
+[nameInput,businessInput,needInput].forEach(function(input){input.addEventListener('input',function(){updateWaLink();if(nameInput.value.trim()&&businessInput.value.trim()){[nameInput,businessInput].forEach(function(field){field.setAttribute('aria-invalid','false');});if(formError){formError.textContent='';formError.hidden=true;}}});});updateWaLink();
 var form=document.getElementById('inquiryForm');
+var formError=document.getElementById('formError');
 function validateForm(){
   if(!form)return true;
-  var documentLang=(document.documentElement.getAttribute('lang')||'en').toLowerCase();
-  var message=documentLang.indexOf('sv')===0?'Fyll i det här fältet.':documentLang.indexOf('ar')===0?'يرجى ملء هذا الحقل.':'Please fill out this field.';
-  [nameInput,businessInput].forEach(function(input){input.setCustomValidity(input.value.trim()?'':message);});
-  return form.reportValidity();
+  var missing=[nameInput,businessInput].filter(function(input){return !input.value.trim();});
+  [nameInput,businessInput].forEach(function(input){input.setAttribute('aria-invalid',input.value.trim()?'false':'true');});
+  if(missing.length){
+    var documentLang=(document.documentElement.getAttribute('lang')||'en').toLowerCase();
+    var message=documentLang.indexOf('sv')===0?'Fyll i ditt namn och företagsnamn.':documentLang.indexOf('ar')===0?'يرجى إدخال اسمك واسم النشاط التجاري.':'Please enter your name and business name.';
+    if(formError){formError.textContent=message;formError.hidden=false;}
+    missing[0].focus();
+    return false;
+  }
+  [nameInput,businessInput].forEach(function(input){input.setAttribute('aria-invalid','false');});
+  if(formError){formError.textContent='';formError.hidden=true;}
+  return true;
 }
 if(form)form.addEventListener('submit',function(e){e.preventDefault();if(!validateForm())return;});
 if(waLink)waLink.addEventListener('click',function(e){
