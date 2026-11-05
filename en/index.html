@@ -556,17 +556,23 @@ var magnet=document.getElementById('magnetBtn');if(magnet&&!reduceMotion&&window
 var nameInput=document.getElementById('leadName'),businessInput=document.getElementById('leadBusiness'),needInput=document.getElementById('leadNeed'),waLink=document.getElementById('waLink');
 function buildMessage(){var name=nameInput.value.trim(),business=businessInput.value.trim(),need=needInput.value.trim();var msg=lang==='sv'?'Hej Yazan!'+(name?' Jag heter '+name+'.':'')+' Jag vill gärna prata om en landningssida'+(business?' för '+business:'')+'.':'Hi Yazan!'+(name?' I’m '+name+'.':'')+' I’d like to discuss a landing page'+(business?' for '+business:'')+'.';return msg+(need?' '+need:'');}
 function updateWaLink(){waLink.href='https://wa.me/46707358046?text='+encodeURIComponent(buildMessage());}
-[nameInput,businessInput,needInput].forEach(function(input){input.addEventListener('input',updateWaLink);});updateWaLink();
+[nameInput,businessInput,needInput].forEach(function(input){input.addEventListener('input',function(){nameInput.setCustomValidity('');businessInput.setCustomValidity('');updateWaLink();});});updateWaLink();
 var form=document.getElementById('inquiryForm');
-if(form)form.addEventListener('submit',function(e){e.preventDefault();if(!form.reportValidity())return;});
+function validateForm(){
+  if(!form)return true;
+  var message=lang==='sv'?'Fyll i det här fältet.':lang==='ar'?'يرجى ملء هذا الحقل.':'Please fill out this field.';
+  [nameInput,businessInput].forEach(function(input){input.setCustomValidity(input.value.trim()?'':message);});
+  return form.reportValidity();
+}
+if(form)form.addEventListener('submit',function(e){e.preventDefault();if(!validateForm())return;});
 if(waLink)waLink.addEventListener('click',function(e){
-  if(form&&!form.reportValidity()){e.preventDefault();return;}
+  if(!validateForm()){e.preventDefault();return;}
   e.preventDefault();
   window.open(waLink.href,'_blank','noopener,noreferrer');
 });
 var copyMessage=document.getElementById('copyMessage');
 if(copyMessage)copyMessage.addEventListener('click',function(e){
-  if(form&&!form.reportValidity())return;
+  if(!validateForm())return;
   copyValue(buildMessage(),e.currentTarget);
 });
 document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.addEventListener('click',function(){var open=item.getAttribute('data-open')==='true';document.querySelectorAll('.faq-item').forEach(function(other){other.setAttribute('data-open','false');other.querySelector('.faq-q').setAttribute('aria-expanded','false');other.querySelector('.faq-a').style.maxHeight=null;});if(!open){item.setAttribute('data-open','true');q.setAttribute('aria-expanded','true');a.style.maxHeight=a.scrollHeight+'px';}});});
