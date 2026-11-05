@@ -229,6 +229,7 @@ section + section{border-top:1px solid var(--line)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field label{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft)}
+.required-mark{color:var(--accent2);font-weight:700}
 .field input,.field textarea{
   font:inherit;font-size:15px;color:var(--ink);background:var(--bg);
   border:1px solid var(--line-strong);border-radius:var(--r-sm);padding:11px 13px;
@@ -479,12 +480,12 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
     <form class="inquiry reveal" id="inquiryForm">
       <div class="form-row">
         <div class="field">
-          <label for="leadName"><span lang="en">Your name</span></label>
-          <input type="text" id="leadName" name="name" autocomplete="name">
+          <label for="leadName"><span lang="en">Your name</span> <span class="required-mark" aria-hidden="true">*</span></label>
+          <input type="text" id="leadName" name="name" autocomplete="name" required aria-required="true">
         </div>
         <div class="field">
-          <label for="leadBusiness"><span lang="en">Business name</span></label>
-          <input type="text" id="leadBusiness" name="business" autocomplete="organization">
+          <label for="leadBusiness"><span lang="en">Business name</span> <span class="required-mark" aria-hidden="true">*</span></label>
+          <input type="text" id="leadBusiness" name="business" autocomplete="organization" required aria-required="true">
         </div>
       </div>
       <div class="field">
@@ -556,8 +557,18 @@ var nameInput=document.getElementById('leadName'),businessInput=document.getElem
 function buildMessage(){var name=nameInput.value.trim(),business=businessInput.value.trim(),need=needInput.value.trim();var msg=lang==='sv'?'Hej Yazan!'+(name?' Jag heter '+name+'.':'')+' Jag vill gärna prata om en landningssida'+(business?' för '+business:'')+'.':'Hi Yazan!'+(name?' I’m '+name+'.':'')+' I’d like to discuss a landing page'+(business?' for '+business:'')+'.';return msg+(need?' '+need:'');}
 function updateWaLink(){waLink.href='https://wa.me/46707358046?text='+encodeURIComponent(buildMessage());}
 [nameInput,businessInput,needInput].forEach(function(input){input.addEventListener('input',updateWaLink);});updateWaLink();
-var form=document.getElementById('inquiryForm');if(form)form.addEventListener('submit',function(e){e.preventDefault();});
-var copyMessage=document.getElementById('copyMessage');if(copyMessage)copyMessage.addEventListener('click',function(e){copyValue(buildMessage(),e.currentTarget);});
+var form=document.getElementById('inquiryForm');
+if(form)form.addEventListener('submit',function(e){e.preventDefault();if(!form.reportValidity())return;});
+if(waLink)waLink.addEventListener('click',function(e){
+  if(form&&!form.reportValidity()){e.preventDefault();return;}
+  e.preventDefault();
+  window.open(waLink.href,'_blank','noopener,noreferrer');
+});
+var copyMessage=document.getElementById('copyMessage');
+if(copyMessage)copyMessage.addEventListener('click',function(e){
+  if(form&&!form.reportValidity())return;
+  copyValue(buildMessage(),e.currentTarget);
+});
 document.querySelectorAll('.faq-item').forEach(function(item){var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');q.addEventListener('click',function(){var open=item.getAttribute('data-open')==='true';document.querySelectorAll('.faq-item').forEach(function(other){other.setAttribute('data-open','false');other.querySelector('.faq-q').setAttribute('aria-expanded','false');other.querySelector('.faq-a').style.maxHeight=null;});if(!open){item.setAttribute('data-open','true');q.setAttribute('aria-expanded','true');a.style.maxHeight=a.scrollHeight+'px';}});});
 })();
 </script></body></html>
