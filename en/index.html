@@ -262,9 +262,12 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
 .sample-window h3{font:700 25px/1.02 Georgia,serif;letter-spacing:-.03em;margin:20px 0 7px;color:#211D28}.sample-window p{font:11px/1.45 Arial,sans-serif;color:#716B76;max-width:28ch}
 .sample-cta{display:inline-block;margin-top:13px;padding:7px 11px;border-radius:99px;background:var(--accent);color:var(--accent-ink);font:700 9px ui-monospace,monospace}
 .sample-caption{padding:15px 17px 17px}.sample-caption strong{display:block;font-size:14px;margin-bottom:4px}.sample-caption span{font-size:12px;color:var(--ink-soft);line-height:1.5}
+.lighthouse-panel{margin-top:42px;padding:clamp(20px,3vw,30px);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);box-shadow:var(--shadow)}
+.lighthouse-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}.lighthouse-heading h2{font:700 clamp(23px,3vw,31px)/1.1 Georgia,serif;letter-spacing:-.035em;margin:7px 0 0}.lighthouse-device{padding:7px 10px;border:1px solid var(--line);border-radius:7px;color:var(--ink-soft);font:600 10px ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.lighthouse-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.lighthouse-score{min-width:0;display:flex;flex-direction:column;align-items:flex-start;padding:18px 16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}.score-number{font:700 clamp(34px,5vw,48px)/1 Georgia,serif;letter-spacing:-.055em;color:var(--accent)}.score-label{margin-top:9px;font-size:12px;font-weight:650;color:var(--ink)}.score-track{height:4px;width:100%;margin-top:15px;overflow:hidden;border-radius:5px;background:var(--line)}.score-track i{display:block;height:100%;border-radius:5px;background:var(--accent)}.score-detail{margin-top:8px;color:var(--ink-soft);font-size:10px;line-height:1.4}.lighthouse-timing .score-number{font-size:clamp(30px,4vw,42px)}.lighthouse-footnote{margin:15px 0 0;color:var(--ink-soft);font-size:11px;line-height:1.5}
 .expectation-grid{margin-top:30px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.expectation-card{padding:22px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
 .expectation-card h3{font-size:18px;margin-bottom:8px}.expectation-card p{font-size:14px;color:var(--ink-soft);line-height:1.6}.founder-note{margin-top:24px}
-@media(max-width:700px){.sample-grid,.expectation-grid{grid-template-columns:1fr}.sample-preview{min-height:180px}}@media(forced-colors:active){.sample-card,.expectation-card{border:1px solid CanvasText}}
+@media(max-width:700px){.lighthouse-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lighthouse-heading{align-items:flex-start}.expectation-grid{grid-template-columns:1fr}}@media(forced-colors:active){.sample-card,.expectation-card{border:1px solid CanvasText}}
 </style>
 </head><body><a class="skip-link" href="#main">Skip to content</a>
 <div id="page" data-lang="en">
@@ -307,12 +310,19 @@ footer{padding-block:28px;border-top:1px solid var(--line);font-family:var(--fon
       </div>
 
       
-      <div class="sample-grid" aria-label="Illustrative website concepts">
-        <article class="sample-card"><div class="sample-preview cafe"><div class="sample-window"><div class="sample-top"><span>CAFÉ</span><i></i></div><h3>Good coffee.<br>Good mornings.</h3><p>A simple menu, opening hours and an easy way to find us.</p><span class="sample-cta">VIEW MENU</span></div></div><div class="sample-caption"><strong><span lang="en">Café concept</span></strong><span><span lang="en">Menu, hours and directions.</span></span></div></article>
-        <article class="sample-card"><div class="sample-preview service"><div class="sample-window"><div class="sample-top"><span>HOME SERVICES</span><i></i></div><h3>Repairs done<br>the right way.</h3><p>Services, service area and a clear quote request.</p><span class="sample-cta">REQUEST A QUOTE</span></div></div><div class="sample-caption"><strong><span lang="en">Service business</span></strong><span><span lang="en">Services, coverage and quote requests.</span></span></div></article>
-        <article class="sample-card"><div class="sample-preview salon"><div class="sample-window"><div class="sample-top"><span>SALON</span><i></i></div><h3>Your next look<br>starts here.</h3><p>Work examples, treatments and booking information.</p><span class="sample-cta">BOOK A VISIT</span></div></div><div class="sample-caption"><strong><span lang="en">Salon concept</span></strong><span><span lang="en">Treatments, examples and booking.</span></span></div></article>
-      </div>
-      <p class="inquiry-hint"><span lang="en">Illustrative concepts only — these are not previous client projects.</span></p>
+      <section class="lighthouse-panel" aria-label="Lighthouse results">
+        <div class="lighthouse-heading">
+          <div><span class="eyebrow mono">PERFORMANCE, MEASURED</span><h2>Lighthouse results</h2></div>
+          <span class="lighthouse-device">Mobile audit</span>
+        </div>
+        <div class="lighthouse-grid">
+          <article class="lighthouse-score"><span class="score-number">100</span><span class="score-label">Performance</span><span class="score-track"><i style="width:100%"></i></span></article>
+          <article class="lighthouse-score"><span class="score-number">100</span><span class="score-label">Best practices</span><span class="score-track"><i style="width:100%"></i></span></article>
+          <article class="lighthouse-score"><span class="score-number">91</span><span class="score-label">Accessibility</span><span class="score-track"><i style="width:91%"></i></span></article>
+          <article class="lighthouse-score lighthouse-timing"><span class="score-number">1.5 s</span><span class="score-label">First Contentful Paint</span><span class="score-detail">Previously recorded mobile result</span></article>
+        </div>
+        <p class="lighthouse-footnote">Scores are from the most recently documented Lighthouse mobile audit. Results can vary between runs and devices.</p>
+      </section>
 
     </div>
   </section>
